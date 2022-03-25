@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "oddblocks:odd_dirt_block"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "oddblocks:odd_dirt_block"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "oddblocks:odd_dirt_block"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "oddblocks:odd_dirt_block"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:dirt"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ]
+    }
+  ]
+}
+
