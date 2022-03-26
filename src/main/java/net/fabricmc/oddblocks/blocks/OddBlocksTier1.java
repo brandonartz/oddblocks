@@ -1,7 +1,7 @@
 package net.fabricmc.oddblocks.blocks;
 
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
+//import org.spongepowered.asm.mixin.Overwrite;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
@@ -14,9 +14,8 @@ public class OddBlocksTier1 extends Block {
         super(settings);
     }
 
-    @Overwrite
+    @Override
     public void onBroken(WorldAccess world, BlockPos pos, BlockState state) {
         world.setBlockState(pos, state, Block.NOTIFY_ALL);
     }
-
 }
