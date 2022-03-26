@@ -1,0 +1,39 @@
+{
+    "type": "minecraft:block",
+    "pools": [
+      {
+        "rolls": 1,
+        "entries": [
+          {
+            "type": "minecraft:item",
+            "name": "oddblocks:odd_stone_block"
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:stone"
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:cobblestone"
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:cobblestone"
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:cobblestone"
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:cobblestone"
+          }
+        ],
+        "conditions": [
+          {
+            "condition": "minecraft:survives_explosion"
+          }
+        ]
+      }
+    ]
+  }
