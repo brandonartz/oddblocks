@@ -1,12 +1,7 @@
 {
     "replace": false,
-<<<<<<< HEAD
     "values": [
       "oddblocks:odd_iron_ore_block",
       "oddblocks:odd_copper_ore_block"
     ]
   }
-=======
-    "values": []
-}
->>>>>>> 75760f0a451c0b94d48e3f04017b58d10b417d46

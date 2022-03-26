@@ -1,0 +1,51 @@
+{
+    "type": "minecraft:block",
+    "pools": [
+      {
+        "rolls": 1,
+        "entries": [
+          {
+            "type": "minecraft:item",
+            "name": "oddblocks:odd_pet_egg_block",
+            "weight": 1
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:cat_spawn_egg",
+            "weight": 3
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:donkey_spawn_egg",
+            "weight": 1
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:llama_spawn_egg",
+            "weight": 1
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:panda_spawn_egg",
+            "weight": 1
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:wolf_spawn_egg",
+            "weight": 5
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:parrot_spawn_egg",
+            "weight": 3
+          }
+        ],
+        "conditions": [
+          {
+            "condition": "minecraft:survives_explosion"
+          }
+        ]
+      }
+    ]
+  }
+  

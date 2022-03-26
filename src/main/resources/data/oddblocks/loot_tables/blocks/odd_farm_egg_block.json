@@ -1,0 +1,52 @@
+{
+    "type": "minecraft:block",
+    "pools": [
+      {
+        "rolls": 1,
+        "entries": [
+          {
+            "type": "minecraft:item",
+            "name": "oddblocks:odd_farm_egg_block",
+            "weight": 1
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:pig_spawn_egg",
+            "weight": 5
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:horse_spawn_egg",
+            "weight": 1
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:rabbit_spawn_egg",
+            "weight": 2
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:chicken_spawn_egg",
+            "weight": 3
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:cow_spawn_egg",
+            "weight": 5
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:sheep_spawn_egg",
+            "weight": 5
+          }
+        ],
+        "conditions": [
+          {
+            "condition": "minecraft:survives_explosion"
+          }
+        ]
+      }
+    ]
+  }
+  
+  

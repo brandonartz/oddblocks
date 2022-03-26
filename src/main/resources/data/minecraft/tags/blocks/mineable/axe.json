@@ -1,6 +1,7 @@
 {
     "replace": false,
     "values": [
-      "oddblocks:odd_wood_block"
+      "oddblocks:odd_wood_block",
+      "oddblocks:odd_sapling_block"
     ]
   }

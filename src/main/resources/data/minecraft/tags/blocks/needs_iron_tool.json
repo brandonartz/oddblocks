@@ -1,11 +1,9 @@
 {
     "replace": false,
-<<<<<<< HEAD
     "values": [
-      "oddblocks:odd_gold_ore_block"
+      "oddblocks:odd_gold_ore_block",
+      "oddblocks:odd_emerald_ore_block",
+      "oddblocks:odd_diamond_ore_block",
+      "oddblocks:odd_redstone_ore_block"
     ]
   }
-=======
-    "values": []
-}
->>>>>>> 75760f0a451c0b94d48e3f04017b58d10b417d46

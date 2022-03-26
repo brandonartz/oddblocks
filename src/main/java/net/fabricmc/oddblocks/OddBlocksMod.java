@@ -23,8 +23,17 @@ public class OddBlocksMod implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger("modid");
 
 	public static final OddBlocksTier1 ODD_DIRT = new OddBlocksTier1(FabricBlockSettings.of(Material.SOIL).strength(0.5f), 19);
+	public static final OddBlocksTier1 ODD_FARM_SEED = new OddBlocksTier1(FabricBlockSettings.of(Material.PLANT).strength(0.5f), 9);
+	public static final OddBlocksTier1 ODD_FOOD_SEED = new OddBlocksTier1(FabricBlockSettings.of(Material.PLANT).strength(0.5f), 9);
+	public static final OddBlocksTier1 ODD_FLOWER = new OddBlocksTier1(FabricBlockSettings.of(Material.PLANT).strength(0.5f), 19);
+	public static final OddBlocksTier1 ODD_SAPLING = new OddBlocksTier1(FabricBlockSettings.of(Material.PLANT).strength(0.5f), 4);
 	public static final OddBlocksTier1 ODD_STONE = new OddBlocksTier1(FabricBlockSettings.of(Material.STONE).strength(2.0f, 20.0f).requiresTool(), 19);
+	public static final OddBlocksTier1 ODD_EMERALD_ORE = new OddBlocksTier1(FabricBlockSettings.of(Material.STONE).strength(3.0f, 20.0f).requiresTool(), 5);
+	public static final OddBlocksTier1 ODD_DIAMOND_ORE = new OddBlocksTier1(FabricBlockSettings.of(Material.STONE).strength(3.0f, 20.0f).requiresTool(), 5);
+	public static final OddBlocksTier1 ODD_REDSTONE_ORE = new OddBlocksTier1(FabricBlockSettings.of(Material.STONE).strength(2.0f, 20.0f).requiresTool(), 6);
 	public static final OddBlocksTier1 ODD_WOOD = new OddBlocksTier1(FabricBlockSettings.of(Material.WOOD).strength(1.5f, 20.0f), 19);
+	public static final OddBlocksTier1 ODD_FARM_EGG = new OddBlocksTier1(FabricBlockSettings.of(Material.EGG).strength(1.0f, 20.0f), 9);
+	public static final OddBlocksTier1 ODD_PET_EGG = new OddBlocksTier1(FabricBlockSettings.of(Material.EGG).strength(1.0f, 20.0f), 1);
 	public static final OddBlocksTier1 ODD_COPPER_ORE = new OddBlocksTier1(FabricBlockSettings.of(Material.METAL).strength(2.5f, 20.0f).requiresTool(), 19);
 	public static final OddBlocksTier1 ODD_IRON_ORE = new OddBlocksTier1(FabricBlockSettings.of(Material.METAL).strength(2.5f, 20.0f).requiresTool(), 19);
 	public static final OddBlocksTier1 ODD_GOLD_ORE = new OddBlocksTier1(FabricBlockSettings.of(Material.METAL).strength(2.0f, 20.0f).requiresTool(), 19);
@@ -38,16 +47,34 @@ public class OddBlocksMod implements ModInitializer {
 
 		LOGGER.info("Hello Fabric world!");
 		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_dirt_block"), ODD_DIRT);
+		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_farm_seed_block"), ODD_FARM_SEED);
+		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_food_seed_block"), ODD_FOOD_SEED);
+		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_flower_block"), ODD_FLOWER);
+		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_sapling_block"), ODD_SAPLING);
 		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_stone_block"), ODD_STONE);
 		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_wood_block"), ODD_WOOD);
+		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_farm_egg_block"), ODD_FARM_EGG);
+		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_pet_egg_block"), ODD_PET_EGG);
 		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_copper_ore_block"), ODD_COPPER_ORE);
 		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_iron_ore_block"), ODD_IRON_ORE);
 		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_gold_ore_block"), ODD_GOLD_ORE);
+		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_emerald_ore_block"), ODD_EMERALD_ORE);
+		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_diamond_ore_block"), ODD_DIAMOND_ORE);
+		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_redstone_ore_block"), ODD_REDSTONE_ORE);
 		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_dirt_block"), new BlockItem(ODD_DIRT, new FabricItemSettings().group(ItemGroup.MISC)));
+		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_farm_seed_block"), new BlockItem(ODD_FARM_SEED, new FabricItemSettings().group(ItemGroup.MISC)));
+		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_food_seed_block"), new BlockItem(ODD_FOOD_SEED, new FabricItemSettings().group(ItemGroup.MISC)));
+		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_flower_block"), new BlockItem(ODD_FLOWER, new FabricItemSettings().group(ItemGroup.MISC)));
+		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_sapling_block"), new BlockItem(ODD_SAPLING, new FabricItemSettings().group(ItemGroup.MISC)));
 		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_stone_block"), new BlockItem(ODD_STONE, new FabricItemSettings().group(ItemGroup.MISC)));
 		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_wood_block"), new BlockItem(ODD_WOOD, new FabricItemSettings().group(ItemGroup.MISC)));
+		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_farm_egg_block"), new BlockItem(ODD_FARM_EGG, new FabricItemSettings().group(ItemGroup.MISC)));
+		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_pet_egg_block"), new BlockItem(ODD_PET_EGG, new FabricItemSettings().group(ItemGroup.MISC)));
 		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_copper_ore_block"), new BlockItem(ODD_COPPER_ORE, new FabricItemSettings().group(ItemGroup.MISC)));
 		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_iron_ore_block"), new BlockItem(ODD_IRON_ORE, new FabricItemSettings().group(ItemGroup.MISC)));
 		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_gold_ore_block"), new BlockItem(ODD_GOLD_ORE, new FabricItemSettings().group(ItemGroup.MISC)));
+		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_emerald_ore_block"), new BlockItem(ODD_EMERALD_ORE, new FabricItemSettings().group(ItemGroup.MISC)));
+		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_diamond_ore_block"), new BlockItem(ODD_DIAMOND_ORE, new FabricItemSettings().group(ItemGroup.MISC)));
+		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_redstone_ore_block"), new BlockItem(ODD_REDSTONE_ORE, new FabricItemSettings().group(ItemGroup.MISC)));
 	}
 }
