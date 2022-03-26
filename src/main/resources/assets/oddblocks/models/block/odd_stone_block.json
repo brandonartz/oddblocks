@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-      "all": "minecraft:block/cobblestone"
+      "all": "oddblocks:block/odd_stone_block"
     }
   }
