@@ -1,6 +1,11 @@
 {
     "replace": false,
+<<<<<<< HEAD
     "values": [
       "oddblocks:odd_gold_ore_block"
     ]
   }
+=======
+    "values": []
+}
+>>>>>>> 75760f0a451c0b94d48e3f04017b58d10b417d46
