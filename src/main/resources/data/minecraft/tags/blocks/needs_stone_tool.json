@@ -1,0 +1,7 @@
+{
+    "replace": false,
+    "values": [
+      "oddblocks:odd_iron_ore_block",
+      "oddblocks:odd_copper_ore_block"
+    ]
+  }
