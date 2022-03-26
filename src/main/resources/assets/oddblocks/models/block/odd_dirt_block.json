@@ -2,6 +2,7 @@
     "parent": "block/cube_all",
     "textures": {
       "particle": "block/dirt",
+      "all": "oddblocks:block/odd_dirt_block",
       "bottom": "oddblocks:block/odd_dirt_block",
       "top": "oddblocks:block/odd_dirt_block",
       "side": "oddblocks:block/odd_dirt_block"
