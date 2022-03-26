@@ -20,8 +20,8 @@ public class OddBlocksMod implements ModInitializer {
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LoggerFactory.getLogger("modid");
 
-	public static final OddBlocksTier1 ODD_DIRT = new OddBlocksTier1(FabricBlockSettings.of(Material.SOIL).strength(0.5f));
-	public static final OddBlocksTier1 ODD_STONE = new OddBlocksTier1(FabricBlockSettings.of(Material.STONE).strength(2.0f, 20.0f).requiresTool());
+	public static final OddBlocksTier1 ODD_DIRT = new OddBlocksTier1(FabricBlockSettings.of(Material.SOIL).strength(0.5f), 20);
+	public static final OddBlocksTier1 ODD_STONE = new OddBlocksTier1(FabricBlockSettings.of(Material.STONE).strength(2.0f, 20.0f).requiresTool(), 10);
 	
     @Override
 	public void onInitialize() {
