@@ -6,27 +6,18 @@
         "entries": [
           {
             "type": "minecraft:item",
-            "name": "oddblocks:odd_stone_block"
+            "name": "oddblocks:odd_stone_block",
+            "weight": 1
           },
           {
             "type": "minecraft:item",
-            "name": "minecraft:stone"
+            "name": "minecraft:stone",
+            "weight": 3
           },
           {
             "type": "minecraft:item",
-            "name": "minecraft:cobblestone"
-          },
-          {
-            "type": "minecraft:item",
-            "name": "minecraft:cobblestone"
-          },
-          {
-            "type": "minecraft:item",
-            "name": "minecraft:cobblestone"
-          },
-          {
-            "type": "minecraft:item",
-            "name": "minecraft:cobblestone"
+            "name": "minecraft:cobblestone",
+            "weight": 6
           }
         ],
         "conditions": [
