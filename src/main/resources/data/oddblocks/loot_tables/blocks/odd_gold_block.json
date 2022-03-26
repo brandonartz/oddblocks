@@ -1,0 +1,35 @@
+{
+    "type": "minecraft:block",
+    "pools": [
+      {
+        "rolls": 1,
+        "entries": [
+          {
+            "type": "minecraft:item",
+            "name": "oddblocks:odd_gold_ore_block",
+            "weight": 1
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:raw_iron",
+            "weight": 1
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:lapis_lazuli",
+            "weight": 1
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:raw_gold",
+            "weight": 8
+          }
+        ],
+        "conditions": [
+          {
+            "condition": "minecraft:survives_explosion"
+          }
+        ]
+      }
+    ]
+  }

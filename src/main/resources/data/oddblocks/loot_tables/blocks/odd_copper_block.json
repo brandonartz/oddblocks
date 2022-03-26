@@ -1,0 +1,30 @@
+{
+    "type": "minecraft:block",
+    "pools": [
+      {
+        "rolls": 1,
+        "entries": [
+          {
+            "type": "minecraft:item",
+            "name": "oddblocks:odd_copper_ore_block",
+            "weight": 1
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:raw_iron",
+            "weight": 1
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:raw_copper",
+            "weight": 8
+          }
+        ],
+        "conditions": [
+          {
+            "condition": "minecraft:survives_explosion"
+          }
+        ]
+      }
+    ]
+  }

@@ -25,6 +25,10 @@ public class OddBlocksMod implements ModInitializer {
 	public static final OddBlocksTier1 ODD_DIRT = new OddBlocksTier1(FabricBlockSettings.of(Material.SOIL).strength(0.5f), 19);
 	public static final OddBlocksTier1 ODD_STONE = new OddBlocksTier1(FabricBlockSettings.of(Material.STONE).strength(2.0f, 20.0f).requiresTool(), 19);
 	public static final OddBlocksTier1 ODD_WOOD = new OddBlocksTier1(FabricBlockSettings.of(Material.WOOD).strength(1.5f, 20.0f), 19);
+	public static final OddBlocksTier1 ODD_COPPER_ORE = new OddBlocksTier1(FabricBlockSettings.of(Material.METAL).strength(2.5f, 20.0f).requiresTool(), 19);
+	public static final OddBlocksTier1 ODD_IRON_ORE = new OddBlocksTier1(FabricBlockSettings.of(Material.METAL).strength(2.5f, 20.0f).requiresTool(), 19);
+	public static final OddBlocksTier1 ODD_GOLD_ORE = new OddBlocksTier1(FabricBlockSettings.of(Material.METAL).strength(2.0f, 20.0f).requiresTool(), 19);
+
 	
     @Override
 	public void onInitialize() {
@@ -36,8 +40,14 @@ public class OddBlocksMod implements ModInitializer {
 		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_dirt_block"), ODD_DIRT);
 		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_stone_block"), ODD_STONE);
 		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_wood_block"), ODD_WOOD);
+		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_copper_ore_block"), ODD_COPPER_ORE);
+		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_iron_ore_block"), ODD_IRON_ORE);
+		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_gold_ore_block"), ODD_GOLD_ORE);
 		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_dirt_block"), new BlockItem(ODD_DIRT, new FabricItemSettings().group(ItemGroup.MISC)));
 		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_stone_block"), new BlockItem(ODD_STONE, new FabricItemSettings().group(ItemGroup.MISC)));
 		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_wood_block"), new BlockItem(ODD_WOOD, new FabricItemSettings().group(ItemGroup.MISC)));
+		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_copper_ore_block"), new BlockItem(ODD_COPPER_ORE, new FabricItemSettings().group(ItemGroup.MISC)));
+		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_iron_ore_block"), new BlockItem(ODD_IRON_ORE, new FabricItemSettings().group(ItemGroup.MISC)));
+		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_gold_ore_block"), new BlockItem(ODD_GOLD_ORE, new FabricItemSettings().group(ItemGroup.MISC)));
 	}
 }
