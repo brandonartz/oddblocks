@@ -38,7 +38,7 @@ public class OddBlocksMod implements ModInitializer {
 	public static final OddBlocksTier1 ODD_FARM_EGG = new OddBlocksTier1(FabricBlockSettings.of(Material.EGG).strength(1.0f, 20.0f), 9);
 	public static final OddBlocksTier1 ODD_PET_EGG = new OddBlocksTier1(FabricBlockSettings.of(Material.EGG).strength(1.0f, 20.0f), 1);
 	public static final OddBlocksTier1 ODD_MUSIC_DISC = new OddBlocksTier1(FabricBlockSettings.of(Material.DECORATION).strength(2.0f, 20.0f), 0);
-	public static final OddBlocksTier1 ODD_RARE = new OddBlocksTier1(FabricBlockSettings.of(Material.DECORATION).strength(3.5f, 20.0f).requiresTool(), 0);
+	public static final OddBlocksTier1 ODD_RARE = new OddBlocksTier1(FabricBlockSettings.of(Material.DECORATION).strength(3.0f, 20.0f).requiresTool(), 0);
 	public static final OddBlocksTier1 ODD_TOOL = new OddBlocksTier1(FabricBlockSettings.of(Material.DECORATION).strength(2.0f, 20.0f), 0);
 	public static final OddBlocksTier1 ODD_COPPER_ORE = new OddBlocksTier1(FabricBlockSettings.of(Material.METAL).strength(2.5f, 20.0f).requiresTool(), 19);
 	public static final OddBlocksTier1 ODD_IRON_ORE = new OddBlocksTier1(FabricBlockSettings.of(Material.METAL).strength(2.5f, 20.0f).requiresTool(), 19);

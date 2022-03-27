@@ -32,6 +32,16 @@
           },
           {
             "type": "minecraft:item",
+            "name": "minecraft:bamboo",
+            "weight": 2
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:cactus",
+            "weight": 2
+          },
+          {
+            "type": "minecraft:item",
             "name": "minecraft:acacia_sapling",
             "weight": 2
           },
