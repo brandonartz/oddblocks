@@ -1,7 +1,7 @@
 {
     "parent": "block/cube_all",
     "textures": {
-      "all": "oddblocks:block/odd_dirt_block"
+      "all": "oddblocks:block/odd_granite_block"
     }
   }
 
