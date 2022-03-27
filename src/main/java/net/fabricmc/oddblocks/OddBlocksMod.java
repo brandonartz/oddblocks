@@ -31,8 +31,11 @@ public class OddBlocksMod implements ModInitializer {
 	public static final OddBlocksTier1 ODD_FLOWER = new OddBlocksTier1(FabricBlockSettings.of(Material.PLANT).strength(0.5f), 19);
 	public static final OddBlocksTier1 ODD_SAPLING = new OddBlocksTier1(FabricBlockSettings.of(Material.PLANT).strength(1.5f), 4);
 	public static final OddBlocksTier1 ODD_STONE = new OddBlocksTier1(FabricBlockSettings.of(Material.STONE).strength(2.0f, 20.0f).requiresTool(), 19);
-	public static final OddBlocksTier1 ODD_EMERALD_ORE = new OddBlocksTier1(FabricBlockSettings.of(Material.STONE).strength(3.0f, 20.0f).requiresTool(), 5);
-	public static final OddBlocksTier1 ODD_DIAMOND_ORE = new OddBlocksTier1(FabricBlockSettings.of(Material.STONE).strength(3.0f, 20.0f).requiresTool(), 5);
+	public static final OddBlocksTier1 ODD_EMERALD_ORE = new OddBlocksTier1(FabricBlockSettings.of(Material.STONE).strength(3.0f, 20.0f).requiresTool(), 4);
+	public static final OddBlocksTier1 ODD_DIAMOND_ORE = new OddBlocksTier1(FabricBlockSettings.of(Material.STONE).strength(3.0f, 20.0f).requiresTool(), 4);
+	public static final OddBlocksTier1 ODD_LAPIS_ORE = new OddBlocksTier1(FabricBlockSettings.of(Material.STONE).strength(2.5f, 20.0f).requiresTool(), 6);
+	public static final OddBlocksTier1 ODD_AMETHYST_ORE = new OddBlocksTier1(FabricBlockSettings.of(Material.STONE).strength(2.5f, 20.0f).requiresTool(), 6);
+	public static final OddBlocksTier1 ODD_COAL_ORE = new OddBlocksTier1(FabricBlockSettings.of(Material.STONE).strength(1.5f, 20.0f).requiresTool(), 14);
 	public static final OddBlocksTier1 ODD_REDSTONE_ORE = new OddBlocksTier1(FabricBlockSettings.of(Material.STONE).strength(2.0f, 20.0f).requiresTool(), 6);
 	public static final OddBlocksTier1 ODD_WOOD = new OddBlocksTier1(FabricBlockSettings.of(Material.WOOD).strength(1.5f, 20.0f), 19);
 	public static final OddBlocksTier1 ODD_FARM_EGG = new OddBlocksTier1(FabricBlockSettings.of(Material.EGG).strength(1.0f, 20.0f), 9);
@@ -72,6 +75,9 @@ public class OddBlocksMod implements ModInitializer {
 		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_gold_ore_block"), ODD_GOLD_ORE);
 		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_emerald_ore_block"), ODD_EMERALD_ORE);
 		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_diamond_ore_block"), ODD_DIAMOND_ORE);
+		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_lapis_ore_block"), ODD_LAPIS_ORE);
+		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_amethyst_ore_block"), ODD_AMETHYST_ORE);
+		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_coal_ore_block"), ODD_COAL_ORE);
 		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_redstone_ore_block"), ODD_REDSTONE_ORE);
 		
 		
@@ -95,6 +101,9 @@ public class OddBlocksMod implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_gold_ore_block"), new BlockItem(ODD_GOLD_ORE, new FabricItemSettings().group(ItemGroup.MISC)));
 		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_emerald_ore_block"), new BlockItem(ODD_EMERALD_ORE, new FabricItemSettings().group(ItemGroup.MISC)));
 		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_diamond_ore_block"), new BlockItem(ODD_DIAMOND_ORE, new FabricItemSettings().group(ItemGroup.MISC)));
+		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_lapis_ore_block"), new BlockItem(ODD_LAPIS_ORE, new FabricItemSettings().group(ItemGroup.MISC)));
+		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_amethyst_ore_block"), new BlockItem(ODD_AMETHYST_ORE, new FabricItemSettings().group(ItemGroup.MISC)));
+		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_coal_ore_block"), new BlockItem(ODD_COAL_ORE, new FabricItemSettings().group(ItemGroup.MISC)));
 		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_redstone_ore_block"), new BlockItem(ODD_REDSTONE_ORE, new FabricItemSettings().group(ItemGroup.MISC)));
 	}
 }
