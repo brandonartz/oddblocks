@@ -1,0 +1,117 @@
+
+{
+    "type": "minecraft:block",
+    "pools": [
+      {
+        "rolls": 1,
+        "entries": [
+          {
+            "type": "minecraft:item",
+            "name": "oddblocks:odd_rare_block",
+            "weight": 1
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:golden_horse_armor",
+            "weight": 1
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:diamond_horse_armor",
+            "weight": 1
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:iron_horse_armor",
+            "weight": 2
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:leather_horse_armor",
+            "weight": 3
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:cookie",
+            "weight": 3
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:diamond_pickaxe",
+            "weight": 1
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:enchanted_golden_apple",
+            "weight": 1
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:golden_apple",
+            "weight": 2
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:golden_carrot",
+            "weight": 2
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:netherite_pickaxe",
+            "weight": 1
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:totem_of_undying",
+            "weight": 1
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:trident",
+            "weight": 2
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:ender_eye",
+            "weight": 1
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:experience_bottle",
+            "weight": 1
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:nether_star",
+            "weight": 1
+          },
+
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:skull_banner_pattern",
+            "weight": 2
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:ghast_tear",
+            "weight": 1
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:zombie_horse_spawn_egg",
+            "weight": 1
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:bucket_of_axolotl",
+            "weight": 2
+          }
+        ],
+        "conditions": [
+          {
+            "condition": "minecraft:survives_explosion"
+          }
+        ]
+      }
+    ]
+  }

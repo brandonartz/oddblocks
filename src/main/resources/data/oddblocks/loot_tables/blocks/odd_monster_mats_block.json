@@ -7,38 +7,48 @@
         "entries": [
           {
             "type": "minecraft:item",
-            "name": "oddblocks:odd_food_seed_block",
+            "name": "oddblocks:odd_monster_mats_block",
             "weight": 1
           },
           {
             "type": "minecraft:item",
-            "name": "minecraft:carrot",
-            "weight": 5
+            "name": "minecraft:slime_ball",
+            "weight": 4
           },
           {
             "type": "minecraft:item",
-            "name": "minecraft:potato",
-            "weight": 5
+            "name": "minecraft:bone",
+            "weight": 4
           },
           {
             "type": "minecraft:item",
-            "name": "minecraft:sugar_cane",
+            "name": "minecraft:spider_eye",
+            "weight": 4
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:string",
             "weight": 3
           },
           {
             "type": "minecraft:item",
-            "name": "minecraft:sweet_berries",
+            "name": "minecraft:gunpowder",
+            "weight": 3
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:scute",
+            "weight": 1
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:ender_pearl",
+            "weight": 1
+          },
+          {
+            "type": "minecraft:item",
+            "name": "minecraft:phantom_membrane",
             "weight": 2
-          },
-          {
-            "type": "minecraft:item",
-            "name": "minecraft:glow_berries",
-            "weight": 1
-          },
-          {
-            "type": "minecraft:item",
-            "name": "minecraft:cocoa_beans",
-            "weight": 1
           }
         ],
         "conditions": [
