@@ -103,7 +103,7 @@
           },
           {
             "type": "minecraft:item",
-            "name": "minecraft:bucket_of_axolotl",
+            "name": "minecraft:axolotl_bucket",
             "weight": 2
           }
         ],
