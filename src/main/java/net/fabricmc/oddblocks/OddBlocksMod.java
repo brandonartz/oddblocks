@@ -88,6 +88,7 @@ public class OddBlocksMod implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_farm_egg_block"), new BlockItem(ODD_FARM_EGG, new FabricItemSettings().group(ItemGroup.MISC)));
 		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_pet_egg_block"), new BlockItem(ODD_PET_EGG, new FabricItemSettings().group(ItemGroup.MISC)));
 		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_music_disc_block"), new BlockItem(ODD_MUSIC_DISC, new FabricItemSettings().group(ItemGroup.MISC)));
+		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_rare_block"), new BlockItem(ODD_RARE, new FabricItemSettings().group(ItemGroup.MISC)));
 		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_tool_block"), new BlockItem(ODD_TOOL, new FabricItemSettings().group(ItemGroup.MISC)));
 		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_copper_ore_block"), new BlockItem(ODD_COPPER_ORE, new FabricItemSettings().group(ItemGroup.MISC)));
 		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_iron_ore_block"), new BlockItem(ODD_IRON_ORE, new FabricItemSettings().group(ItemGroup.MISC)));
