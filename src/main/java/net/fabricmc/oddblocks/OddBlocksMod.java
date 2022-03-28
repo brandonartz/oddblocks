@@ -4,6 +4,10 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.oddblocks.blocks.OddBlocksTier1;
+import net.fabricmc.oddblocks.blocks.OddBlocksTier2;
+import net.fabricmc.oddblocks.blocks.OddBlocksTier3;
+import net.fabricmc.oddblocks.blocks.OddBlocksTier4;
+import net.fabricmc.oddblocks.blocks.OddBlocksTier9;
 import net.fabricmc.oddblocks.world.AbyssGeneratorType;
 import net.fabricmc.oddblocks.world.biome.AbyssBiome;
 import net.fabricmc.oddblocks.world.gen.chunk.AbyssChunkGeneratorSettings;
@@ -24,40 +28,39 @@ public class OddBlocksMod implements ModInitializer {
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LoggerFactory.getLogger("modid");
 
-	public static final OddBlocksTier1 ODD_DIRT = new OddBlocksTier1(FabricBlockSettings.of(Material.SOIL).strength(0.5f), 19);
+	public static final OddBlocksTier1 ODD_WOOD = new OddBlocksTier1(FabricBlockSettings.of(Material.WOOD).strength(1.5f, 20.0f));
+	public static final OddBlocksTier1 ODD_DIRT = new OddBlocksTier1(FabricBlockSettings.of(Material.SOIL).strength(0.5f));
+	public static final OddBlocksTier1 ODD_STONE = new OddBlocksTier1(FabricBlockSettings.of(Material.STONE).strength(2.0f, 20.0f).requiresTool());
+	public static final OddBlocksTier1 ODD_DIORITE = new OddBlocksTier1(FabricBlockSettings.of(Material.STONE).strength(2.0f, 20.0f).requiresTool());
+	public static final OddBlocksTier1 ODD_ANDESITE = new OddBlocksTier1(FabricBlockSettings.of(Material.STONE).strength(2.0f, 20.0f).requiresTool());
+	public static final OddBlocksTier1 ODD_GRANITE = new OddBlocksTier1(FabricBlockSettings.of(Material.STONE).strength(2.0f, 20.0f).requiresTool());
 
-	public static final OddBlocksTier1 ODD_MEAT = new OddBlocksTier1(FabricBlockSettings.of(Material.ORGANIC_PRODUCT).strength(1.5f), 9);
-	public static final OddBlocksTier1 ODD_SEAFOOD = new OddBlocksTier1(FabricBlockSettings.of(Material.ORGANIC_PRODUCT).strength(1.5f), 9);
-	public static final OddBlocksTier1 ODD_MONSTER_MATS = new OddBlocksTier1(FabricBlockSettings.of(Material.ORGANIC_PRODUCT).strength(2.5f), 4);
+	public static final OddBlocksTier2 ODD_MEAT = new OddBlocksTier2(FabricBlockSettings.of(Material.ORGANIC_PRODUCT).strength(1.5f), 9);
+	public static final OddBlocksTier2 ODD_SEAFOOD = new OddBlocksTier2(FabricBlockSettings.of(Material.ORGANIC_PRODUCT).strength(1.5f), 9);
+	public static final OddBlocksTier2 ODD_MONSTER_MATS = new OddBlocksTier2(FabricBlockSettings.of(Material.ORGANIC_PRODUCT).strength(2.5f), 4);
+	public static final OddBlocksTier2 ODD_FARM_SEED = new OddBlocksTier2(FabricBlockSettings.of(Material.PLANT).strength(0.5f), 9);
+	public static final OddBlocksTier2 ODD_FOOD_SEED = new OddBlocksTier2(FabricBlockSettings.of(Material.PLANT).strength(0.5f), 9);
+	public static final OddBlocksTier2 ODD_FLOWER = new OddBlocksTier2(FabricBlockSettings.of(Material.PLANT).strength(0.5f), 19);
+	public static final OddBlocksTier2 ODD_SAPLING = new OddBlocksTier2(FabricBlockSettings.of(Material.PLANT).strength(1.5f), 4);
+	public static final OddBlocksTier2 ODD_COAL_ORE = new OddBlocksTier2(FabricBlockSettings.of(Material.STONE).strength(1.5f, 20.0f).requiresTool(), 14);
+	
+	public static final OddBlocksTier3 ODD_COPPER_ORE = new OddBlocksTier3(FabricBlockSettings.of(Material.METAL).strength(2.5f, 20.0f).requiresTool(), 19);
+	public static final OddBlocksTier3 ODD_IRON_ORE = new OddBlocksTier3(FabricBlockSettings.of(Material.METAL).strength(2.5f, 20.0f).requiresTool(), 19);
+	public static final OddBlocksTier3 ODD_GOLD_ORE = new OddBlocksTier3(FabricBlockSettings.of(Material.METAL).strength(2.0f, 20.0f).requiresTool(), 19);
+	public static final OddBlocksTier3 ODD_REDSTONE_ORE = new OddBlocksTier3(FabricBlockSettings.of(Material.STONE).strength(2.0f, 20.0f).requiresTool(), 6);
 
-	public static final OddBlocksTier1 ODD_FARM_SEED = new OddBlocksTier1(FabricBlockSettings.of(Material.PLANT).strength(0.5f), 9);
-	public static final OddBlocksTier1 ODD_FOOD_SEED = new OddBlocksTier1(FabricBlockSettings.of(Material.PLANT).strength(0.5f), 9);
-	public static final OddBlocksTier1 ODD_FLOWER = new OddBlocksTier1(FabricBlockSettings.of(Material.PLANT).strength(0.5f), 19);
-	public static final OddBlocksTier1 ODD_SAPLING = new OddBlocksTier1(FabricBlockSettings.of(Material.PLANT).strength(1.5f), 4);
+	public static final OddBlocksTier4 ODD_EMERALD_ORE = new OddBlocksTier4(FabricBlockSettings.of(Material.STONE).strength(3.0f, 20.0f).requiresTool(), 4);
+	public static final OddBlocksTier4 ODD_DIAMOND_ORE = new OddBlocksTier4(FabricBlockSettings.of(Material.STONE).strength(3.0f, 20.0f).requiresTool(), 4);
+	public static final OddBlocksTier4 ODD_LAPIS_ORE = new OddBlocksTier4(FabricBlockSettings.of(Material.STONE).strength(2.5f, 20.0f).requiresTool(), 6);
+	public static final OddBlocksTier4 ODD_AMETHYST_ORE = new OddBlocksTier4(FabricBlockSettings.of(Material.STONE).strength(2.5f, 20.0f).requiresTool(), 6);
+	public static final OddBlocksTier4 ODD_FARM_EGG = new OddBlocksTier4(FabricBlockSettings.of(Material.EGG).strength(1.0f, 20.0f), 9);
+	public static final OddBlocksTier4 ODD_PET_EGG = new OddBlocksTier4(FabricBlockSettings.of(Material.EGG).strength(1.0f, 20.0f), 1);
 
-	public static final OddBlocksTier1 ODD_STONE = new OddBlocksTier1(FabricBlockSettings.of(Material.STONE).strength(2.0f, 20.0f).requiresTool(), 19);
-	public static final OddBlocksTier1 ODD_DIORITE = new OddBlocksTier1(FabricBlockSettings.of(Material.STONE).strength(2.0f, 20.0f).requiresTool(), 14);
-	public static final OddBlocksTier1 ODD_ANDESITE = new OddBlocksTier1(FabricBlockSettings.of(Material.STONE).strength(2.0f, 20.0f).requiresTool(), 14);
-	public static final OddBlocksTier1 ODD_GRANITE = new OddBlocksTier1(FabricBlockSettings.of(Material.STONE).strength(2.0f, 20.0f).requiresTool(), 14);
-	public static final OddBlocksTier1 ODD_EMERALD_ORE = new OddBlocksTier1(FabricBlockSettings.of(Material.STONE).strength(3.0f, 20.0f).requiresTool(), 4);
-	public static final OddBlocksTier1 ODD_DIAMOND_ORE = new OddBlocksTier1(FabricBlockSettings.of(Material.STONE).strength(3.0f, 20.0f).requiresTool(), 4);
-	public static final OddBlocksTier1 ODD_LAPIS_ORE = new OddBlocksTier1(FabricBlockSettings.of(Material.STONE).strength(2.5f, 20.0f).requiresTool(), 6);
-	public static final OddBlocksTier1 ODD_AMETHYST_ORE = new OddBlocksTier1(FabricBlockSettings.of(Material.STONE).strength(2.5f, 20.0f).requiresTool(), 6);
-	public static final OddBlocksTier1 ODD_COAL_ORE = new OddBlocksTier1(FabricBlockSettings.of(Material.STONE).strength(1.5f, 20.0f).requiresTool(), 14);
-	public static final OddBlocksTier1 ODD_REDSTONE_ORE = new OddBlocksTier1(FabricBlockSettings.of(Material.STONE).strength(2.0f, 20.0f).requiresTool(), 6);
+	public static final OddBlocksTier9 ODD_MUSIC_DISC = new OddBlocksTier9(FabricBlockSettings.of(Material.DECORATION).strength(2.0f, 20.0f), 0);
+	public static final OddBlocksTier9 ODD_RARE = new OddBlocksTier9(FabricBlockSettings.of(Material.DECORATION).strength(3.0f, 20.0f).requiresTool(), 0);
+	public static final OddBlocksTier9 ODD_TOOL = new OddBlocksTier9(FabricBlockSettings.of(Material.DECORATION).strength(2.0f, 20.0f), 0);
 
-	public static final OddBlocksTier1 ODD_WOOD = new OddBlocksTier1(FabricBlockSettings.of(Material.WOOD).strength(1.5f, 20.0f), 19);
 
-	public static final OddBlocksTier1 ODD_FARM_EGG = new OddBlocksTier1(FabricBlockSettings.of(Material.EGG).strength(1.0f, 20.0f), 9);
-	public static final OddBlocksTier1 ODD_PET_EGG = new OddBlocksTier1(FabricBlockSettings.of(Material.EGG).strength(1.0f, 20.0f), 1);
-
-	public static final OddBlocksTier1 ODD_MUSIC_DISC = new OddBlocksTier1(FabricBlockSettings.of(Material.DECORATION).strength(2.0f, 20.0f), 0);
-	public static final OddBlocksTier1 ODD_RARE = new OddBlocksTier1(FabricBlockSettings.of(Material.DECORATION).strength(3.0f, 20.0f).requiresTool(), 0);
-	public static final OddBlocksTier1 ODD_TOOL = new OddBlocksTier1(FabricBlockSettings.of(Material.DECORATION).strength(2.0f, 20.0f), 0);
-
-	public static final OddBlocksTier1 ODD_COPPER_ORE = new OddBlocksTier1(FabricBlockSettings.of(Material.METAL).strength(2.5f, 20.0f).requiresTool(), 19);
-	public static final OddBlocksTier1 ODD_IRON_ORE = new OddBlocksTier1(FabricBlockSettings.of(Material.METAL).strength(2.5f, 20.0f).requiresTool(), 19);
-	public static final OddBlocksTier1 ODD_GOLD_ORE = new OddBlocksTier1(FabricBlockSettings.of(Material.METAL).strength(2.0f, 20.0f).requiresTool(), 19);
 
 	@Override
 	public void onInitialize() {
