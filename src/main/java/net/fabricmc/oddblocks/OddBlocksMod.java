@@ -4,55 +4,16 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.oddblocks.blocks.OddBlocksTier1;
-<<<<<<< HEAD
 import net.fabricmc.oddblocks.world.AbyssGeneratorType;
 import net.fabricmc.oddblocks.world.biome.AbyssBiome;
 import net.fabricmc.oddblocks.world.gen.chunk.AbyssChunkGeneratorSettings;
 import net.fabricmc.oddblocks.world.gen.feature.OddDirtFeature;
 import net.fabricmc.oddblocks.world.gen.feature.OddSpawnFeature;
-=======
-import net.fabricmc.oddblocks.mixin.GeneratorTypeAccessorMixin;
-import net.fabricmc.oddblocks.world.gen.feature.OddBlocksFeature;
-import net.minecraft.block.Blocks;
->>>>>>> a6dbbb5 (Cleanup of world gen)
 import net.minecraft.block.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-<<<<<<< HEAD
-=======
-import net.minecraft.util.registry.RegistryEntry;
-import net.minecraft.client.world.GeneratorType;
-import net.minecraft.structure.StructureSet;
-import net.minecraft.util.registry.BuiltinRegistries;
-import net.minecraft.util.registry.DynamicRegistryManager;
-import net.minecraft.util.registry.RegistryKey;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.OverworldBiomeCreator;
-import net.minecraft.world.biome.source.BiomeSource;
-import net.minecraft.world.biome.source.FixedBiomeSource;
-import net.minecraft.world.biome.source.util.VanillaTerrainParametersCreator;
-import net.minecraft.world.gen.GenerationStep;
-import net.minecraft.world.gen.YOffset;
-import net.minecraft.world.gen.chunk.ChunkGenerator;
-import net.minecraft.world.gen.chunk.ChunkGeneratorSettings;
-import net.minecraft.world.gen.chunk.GenerationShapeConfig;
-import net.minecraft.world.gen.chunk.NoiseChunkGenerator;
-import net.minecraft.world.gen.chunk.NoiseSamplingConfig;
-import net.minecraft.world.gen.chunk.SlideConfig;
-import net.minecraft.world.gen.densityfunction.DensityFunctionTypes;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
-import net.minecraft.world.gen.feature.PlacedFeature;
-import net.minecraft.world.gen.feature.PlacedFeatures;
-import net.minecraft.world.gen.noise.SimpleNoiseRouter;
-import net.minecraft.world.gen.placementmodifier.HeightRangePlacementModifier;
-import net.minecraft.world.gen.placementmodifier.RarityFilterPlacementModifier;
-import net.minecraft.world.gen.placementmodifier.SquarePlacementModifier;
-import net.minecraft.world.gen.surfacebuilder.VanillaSurfaceRules;
-import java.util.Arrays;
->>>>>>> a6dbbb5 (Cleanup of world gen)
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -98,59 +59,6 @@ public class OddBlocksMod implements ModInitializer {
 	public static final OddBlocksTier1 ODD_IRON_ORE = new OddBlocksTier1(FabricBlockSettings.of(Material.METAL).strength(2.5f, 20.0f).requiresTool(), 19);
 	public static final OddBlocksTier1 ODD_GOLD_ORE = new OddBlocksTier1(FabricBlockSettings.of(Material.METAL).strength(2.0f, 20.0f).requiresTool(), 19);
 
-<<<<<<< HEAD
-=======
-	private static final Biome OBSILAND = createObsiland();
-	public static final RegistryKey<Biome> OBSILAND_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier("tutorial", "obsiland"));
-
-	private static Biome createObsiland() {	 
-		return OverworldBiomeCreator.createNormalOcean(true);
-	}
-	
-
-	private static final GeneratorType ABYSS = new GeneratorType("abyss") {
-		protected ChunkGenerator getChunkGenerator(DynamicRegistryManager registryManager, long seed) {
-			Registry<Biome> registry = registryManager.get(Registry.BIOME_KEY);
-        	Registry<StructureSet> registry2 = registryManager.get(Registry.STRUCTURE_SET_KEY);
-        	Registry<DoublePerlinNoiseSampler.NoiseParameters> registry3 = registryManager.get(Registry.NOISE_WORLDGEN);
-			Registry<ChunkGeneratorSettings> registry4 = registryManager.get(Registry.CHUNK_GENERATOR_SETTINGS_KEY);
-		
-			return new NoiseChunkGenerator(registry2, registry3, (BiomeSource)new FixedBiomeSource(registry.getOrCreateEntry(OBSILAND_KEY)), seed, registry4.getOrCreateEntry(THE_ABYSS));
-		}
-	};
-
-	public static final RegistryKey<ChunkGeneratorSettings> THE_ABYSS = RegistryKey.of(Registry.CHUNK_GENERATOR_SETTINGS_KEY, new Identifier("the_abyss"));
-	
-	private static ConfiguredFeature<?, ?> OVERWORLD_WOOL_ORE_CONFIGURED_FEATURE = new ConfiguredFeature(OddBlocksFeature.ODD_DIRT, new DefaultFeatureConfig());
-	private static ConfiguredFeature<?, ?> OVERWORLD_ODD_SPAWN_CONFIGURED_FEATURE = new ConfiguredFeature(OddBlocksFeature.ODD_SPAWN, new DefaultFeatureConfig());
-	
-
- 
-	private static ChunkGeneratorSettings createTheAbyss(){
-		GenerationShapeConfig gShapeConfig = GenerationShapeConfig.create(0, 256, new NoiseSamplingConfig(2.0, 1.0, 80.0, 160.0), new SlideConfig(-23.4375, 64, -46), new SlideConfig(-0.234375, 7, 1), 2, 1, VanillaTerrainParametersCreator.createEndParameters());
-		SimpleNoiseRouter simpleNoiseRouter = new SimpleNoiseRouter(DensityFunctionTypes.zero(), DensityFunctionTypes.zero(), DensityFunctionTypes.zero(), DensityFunctionTypes.zero(), DensityFunctionTypes.zero(), DensityFunctionTypes.zero(), DensityFunctionTypes.zero(), DensityFunctionTypes.zero(), DensityFunctionTypes.zero(), DensityFunctionTypes.zero(), DensityFunctionTypes.zero(), DensityFunctionTypes.zero(), DensityFunctionTypes.zero(), DensityFunctionTypes.zero(), DensityFunctionTypes.zero());
-		return new ChunkGeneratorSettings(gShapeConfig, Blocks.AIR.getDefaultState(), Blocks.AIR.getDefaultState(), simpleNoiseRouter, VanillaSurfaceRules.getEndStoneRule(), 0, true, false, false, true);
-	}
-
-	public static PlacedFeature OVERWORLD_ODD_SPAWN_PLACED_FEATURE = new PlacedFeature(
-		RegistryEntry.of(OVERWORLD_ODD_SPAWN_CONFIGURED_FEATURE),
-		Arrays.asList(
-		  //RarityFilterPlacementModifier.of(1), 
-		  PlacedFeatures.createCountExtraModifier(1, 0.01f, 0), 
-		  SquarePlacementModifier.of(), 
-		  HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(1))	
-	));
-
-  	public static PlacedFeature OVERWORLD_WOOL_ORE_PLACED_FEATURE = new PlacedFeature(
-      RegistryEntry.of(OVERWORLD_WOOL_ORE_CONFIGURED_FEATURE),
-      Arrays.asList(
-		RarityFilterPlacementModifier.of(100), 
-		PlacedFeatures.createCountExtraModifier(1, 0.25f, 0), 
-		SquarePlacementModifier.of(), 
-		HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(200))
-	));
-
->>>>>>> a6dbbb5 (Cleanup of world gen)
 	@Override
 	public void onInitialize() {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
@@ -219,24 +127,10 @@ public class OddBlocksMod implements ModInitializer {
 		OddSpawnFeature.registerFeature();
 		OddDirtFeature.registerFeature();
 
-<<<<<<< HEAD
 		//These 3 methods control world generations
 		AbyssChunkGeneratorSettings.registerSettings();
 		AbyssBiome.registerBiome();		
 		AbyssGeneratorType.registerGeneratorType();
 			
-=======
-		Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier("oddblocks", "oddblocks_spawn"), OVERWORLD_ODD_SPAWN_CONFIGURED_FEATURE);
-    	Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier("oddblocks", "oddblocks_spawn"), OVERWORLD_ODD_SPAWN_PLACED_FEATURE);
-
-		Registry.register(BuiltinRegistries.BIOME, OBSILAND_KEY.getValue(), OBSILAND);
-
-		Registry.register(BuiltinRegistries.CHUNK_GENERATOR_SETTINGS, new Identifier("the_abyss"), createTheAbyss());
-		
-		GeneratorTypeAccessorMixin.getValues().add(ABYSS);
-
-		BiomeModifications.addFeature(BiomeSelectors.includeByKey(OBSILAND_KEY), GenerationStep.Feature.TOP_LAYER_MODIFICATION, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier("tutorial", "overworld_wool_ore")));
-		BiomeModifications.addFeature(BiomeSelectors.includeByKey(OBSILAND_KEY), GenerationStep.Feature.TOP_LAYER_MODIFICATION, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier("oddblocks", "oddblocks_spawn")));
->>>>>>> a6dbbb5 (Cleanup of world gen)
 	}
 }
