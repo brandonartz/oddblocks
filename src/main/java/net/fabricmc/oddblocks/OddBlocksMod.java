@@ -4,14 +4,16 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.oddblocks.blocks.OddBlocksTier1;
+import net.fabricmc.oddblocks.world.AbyssGeneratorType;
+import net.fabricmc.oddblocks.world.biome.AbyssBiome;
+import net.fabricmc.oddblocks.world.gen.chunk.AbyssChunkGeneratorSettings;
+import net.fabricmc.oddblocks.world.gen.feature.OddDirtFeature;
+import net.fabricmc.oddblocks.world.gen.feature.OddSpawnFeature;
 import net.minecraft.block.Material;
 import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-
-import org.apache.http.impl.io.IdentityInputStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -57,8 +59,7 @@ public class OddBlocksMod implements ModInitializer {
 	public static final OddBlocksTier1 ODD_IRON_ORE = new OddBlocksTier1(FabricBlockSettings.of(Material.METAL).strength(2.5f, 20.0f).requiresTool(), 19);
 	public static final OddBlocksTier1 ODD_GOLD_ORE = new OddBlocksTier1(FabricBlockSettings.of(Material.METAL).strength(2.0f, 20.0f).requiresTool(), 19);
 
-	
-    @Override
+	@Override
 	public void onInitialize() {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
@@ -121,5 +122,15 @@ public class OddBlocksMod implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_amethyst_ore_block"), new BlockItem(ODD_AMETHYST_ORE, new FabricItemSettings().group(ItemGroup.MISC)));
 		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_coal_ore_block"), new BlockItem(ODD_COAL_ORE, new FabricItemSettings().group(ItemGroup.MISC)));
 		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_redstone_ore_block"), new BlockItem(ODD_REDSTONE_ORE, new FabricItemSettings().group(ItemGroup.MISC)));
+	
+		//Features ass the OddBlocks to the world in various ways
+		OddSpawnFeature.registerFeature();
+		OddDirtFeature.registerFeature();
+
+		//These 3 methods control world generations
+		AbyssChunkGeneratorSettings.registerSettings();
+		AbyssBiome.registerBiome();		
+		AbyssGeneratorType.registerGeneratorType();
+			
 	}
 }
