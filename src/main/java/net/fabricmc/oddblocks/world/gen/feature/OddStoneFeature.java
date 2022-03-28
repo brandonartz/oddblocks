@@ -27,37 +27,42 @@ import net.minecraft.world.gen.placementmodifier.RarityFilterPlacementModifier;
 import net.minecraft.world.gen.placementmodifier.SquarePlacementModifier;
 import net.minecraft.world.gen.GenerationStep;
 
-public class OddDirtFeature extends Feature<DefaultFeatureConfig> {
+public class OddStoneFeature extends Feature<DefaultFeatureConfig> {
     private static final BlockPos START_BLOCK = new BlockPos(8, 3, 8);
         
-    public OddDirtFeature(Codec<DefaultFeatureConfig> codec) {
+    public OddStoneFeature(Codec<DefaultFeatureConfig> codec) {
         super(codec);
     }
 
     public static void registerFeature(){  
-        ConfiguredFeature<?, ?> OVERWORLD_ODD_DIRT_CONFIGURED_FEATURE = new ConfiguredFeature(OddBlocksFeature.ODD_DIRT, new DefaultFeatureConfig());
-        PlacedFeature OVERWORLD_ODD_DIRT_PLACED_FEATURE = new PlacedFeature(
-            RegistryEntry.of(OVERWORLD_ODD_DIRT_CONFIGURED_FEATURE),
+        ConfiguredFeature<?, ?> OVERWORLD_ODD_STONE_CONFIGURED_FEATURE = new ConfiguredFeature(OddBlocksFeature.ODD_STONE, new DefaultFeatureConfig());
+        PlacedFeature OVERWORLD_ODD_STONE_PLACED_FEATURE = new PlacedFeature(
+            RegistryEntry.of(OVERWORLD_ODD_STONE_CONFIGURED_FEATURE),
             Arrays.asList(
-              RarityFilterPlacementModifier.of(100), 
+              RarityFilterPlacementModifier.of(200), 
               PlacedFeatures.createCountExtraModifier(1, 0.25f, 0), 
               SquarePlacementModifier.of(), 
               HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(200))
             )
         );
 
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier("oddblocks", "odd_dirt"), OVERWORLD_ODD_DIRT_CONFIGURED_FEATURE);
-    	Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier("oddblocks", "odd_dirt"), OVERWORLD_ODD_DIRT_PLACED_FEATURE);
-        BiomeModifications.addFeature(BiomeSelectors.includeByKey(AbyssBiome.ABYSS_KEY), GenerationStep.Feature.TOP_LAYER_MODIFICATION, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier("oddblocks", "odd_dirt")));
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier("oddblocks", "odd_stone"), OVERWORLD_ODD_STONE_CONFIGURED_FEATURE);
+    	Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier("oddblocks", "odd_stone"), OVERWORLD_ODD_STONE_PLACED_FEATURE);
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(AbyssBiome.ABYSS_KEY), GenerationStep.Feature.TOP_LAYER_MODIFICATION, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier("oddblocks", "odd_stone")));
     }
 
     @Override
     public boolean generate(FeatureContext<DefaultFeatureConfig> context) {
         StructureWorldAccess structureWorldAccess = context.getWorld();
         BlockPos blockPos = context.getOrigin();
-                         
-        this.setBlockState(structureWorldAccess, blockPos.add(0,0,0), OddBlocksMod.ODD_DIRT.getDefaultState());
-     
+                       
+        if(blockPos.isWithinDistance(START_BLOCK, 100)){
+            //OddBlocksMod.LOGGER.info("Position is within 100 blocks of spawn");
+        }else{
+            //OddBlocksMod.LOGGER.info("Position is NOT within 100 blocks of spawn");
+            this.setBlockState(structureWorldAccess, blockPos.add(0,0,0), OddBlocksMod.ODD_STONE.getDefaultState());
+        }
+           
         return true;
     }
 }

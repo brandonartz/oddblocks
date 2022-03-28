@@ -13,6 +13,7 @@ import net.fabricmc.oddblocks.world.biome.AbyssBiome;
 import net.fabricmc.oddblocks.world.gen.chunk.AbyssChunkGeneratorSettings;
 import net.fabricmc.oddblocks.world.gen.feature.OddDirtFeature;
 import net.fabricmc.oddblocks.world.gen.feature.OddSpawnFeature;
+import net.fabricmc.oddblocks.world.gen.feature.OddStoneFeature;
 import net.minecraft.block.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroup;
@@ -129,6 +130,7 @@ public class OddBlocksMod implements ModInitializer {
 		//Features ass the OddBlocks to the world in various ways
 		OddSpawnFeature.registerFeature();
 		OddDirtFeature.registerFeature();
+		OddStoneFeature.registerFeature();
 
 		//These 3 methods control world generations
 		AbyssChunkGeneratorSettings.registerSettings();
