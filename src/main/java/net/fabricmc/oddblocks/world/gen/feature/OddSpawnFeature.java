@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.oddblocks.OddBlocksMod;
 import net.fabricmc.oddblocks.world.biome.AbyssBiome;
+import net.minecraft.block.Blocks;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
@@ -67,6 +68,15 @@ public class OddSpawnFeature extends Feature<DefaultFeatureConfig> {
             OddBlocksMod.LOGGER.info("MAKING SPAWN BLOCK");
             StructureWorldAccess structureWorldAccess = context.getWorld();
             this.setBlockState(structureWorldAccess, START_BLOCK, OddBlocksMod.ODD_DIRT.getDefaultState());
+            this.setBlockState(structureWorldAccess, START_BLOCK.add(1,0,0), Blocks.DIRT.getDefaultState());
+            this.setBlockState(structureWorldAccess, START_BLOCK.add(1,0,1), Blocks.DIRT.getDefaultState());
+            this.setBlockState(structureWorldAccess, START_BLOCK.add(1,0,-1), Blocks.DIRT.getDefaultState());
+            this.setBlockState(structureWorldAccess, START_BLOCK.add(-1,0,-1), Blocks.DIRT.getDefaultState());
+            this.setBlockState(structureWorldAccess, START_BLOCK.add(-1,0,0), Blocks.DIRT.getDefaultState());
+            this.setBlockState(structureWorldAccess, START_BLOCK.add(-1,0,1), Blocks.DIRT.getDefaultState());
+            this.setBlockState(structureWorldAccess, START_BLOCK.add(0,0,-1), Blocks.DIRT.getDefaultState());
+            this.setBlockState(structureWorldAccess, START_BLOCK.add(0,0,1), Blocks.DIRT.getDefaultState());
+            
             return true;
         }
     }
