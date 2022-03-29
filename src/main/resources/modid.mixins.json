@@ -6,11 +6,10 @@
   "mixins": [
   ],
   "client": [
-    "OddBlocksMixin",
-    "GeneratorTypeAccessorMixin"
+    "OddBlocksMixin"
   ],
   "server": [
-
+    
   ],
   "injectors": {
     "defaultRequire": 1

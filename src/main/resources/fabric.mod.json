@@ -20,6 +20,12 @@
   "entrypoints": {
     "main": [
       "net.fabricmc.oddblocks.OddBlocksMod"
+    ],
+    "client":[
+      "net.fabricmc.oddblocks.OddBlocksClientMod"
+    ],
+    "server":[
+      "net.fabricmc.oddblocks.OddBlocksServerMod"
     ]
   },
   "mixins": [

@@ -1,5 +1,6 @@
 package net.fabricmc.oddblocks;
 
+import net.fabricmc.api.EnvType;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -8,9 +9,6 @@ import net.fabricmc.oddblocks.blocks.OddBlocksTier2;
 import net.fabricmc.oddblocks.blocks.OddBlocksTier3;
 import net.fabricmc.oddblocks.blocks.OddBlocksTier4;
 import net.fabricmc.oddblocks.blocks.OddBlocksTier9;
-import net.fabricmc.oddblocks.world.AbyssGeneratorType;
-import net.fabricmc.oddblocks.world.biome.AbyssBiome;
-import net.fabricmc.oddblocks.world.gen.chunk.AbyssChunkGeneratorSettings;
 import net.fabricmc.oddblocks.world.gen.feature.OddBlocksTier1Feature;
 import net.fabricmc.oddblocks.world.gen.feature.OddBlocksTier2Feature;
 import net.fabricmc.oddblocks.world.gen.feature.OddBlocksTier3Feature;
@@ -24,6 +22,9 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryKey;
+import net.minecraft.world.biome.Biome;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,6 +34,8 @@ public class OddBlocksMod implements ModInitializer {
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LoggerFactory.getLogger("modid");
+
+	public static final RegistryKey<Biome> ABYSS_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier("oddblocks", "abyss"));
 
 	//These TagKeys are used by the Features to get lists of applicable random blocks during generation
 	public static final TagKey<Block> ODDBLOCKS_TIER1 = TagKey.of(Registry.BLOCK_KEY, new Identifier("oddblocks", "oddblocks_tier1_blocks"));
@@ -141,18 +144,12 @@ public class OddBlocksMod implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_coal_ore_block"), new BlockItem(ODD_COAL_ORE, new FabricItemSettings().group(ItemGroup.MISC)));
 		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_redstone_ore_block"), new BlockItem(ODD_REDSTONE_ORE, new FabricItemSettings().group(ItemGroup.MISC)));
 	
-		//Features ass the OddBlocks to the world in various ways
+		//Features add the OddBlocks to the world in various ways
 		OddSpawnFeature.registerFeature();
 		OddBlocksTier1Feature.registerFeature();
 		OddBlocksTier2Feature.registerFeature();
 		OddBlocksTier3Feature.registerFeature();
 		OddBlocksTier4Feature.registerFeature();
-		OddBlocksTier9Feature.registerFeature();
-
-		//These 3 methods control world generations
-		AbyssChunkGeneratorSettings.registerSettings();
-		AbyssBiome.registerBiome();		
-		AbyssGeneratorType.registerGeneratorType();
-			
+		OddBlocksTier9Feature.registerFeature();	
 	}
 }
