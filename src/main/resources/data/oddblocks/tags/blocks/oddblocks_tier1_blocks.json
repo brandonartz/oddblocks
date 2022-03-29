@@ -1,0 +1,8 @@
+{
+    "replace": false,
+    "values": [
+        "oddblocks:odd_stone_block",
+        "oddblocks:odd_wood_block",
+        "oddblocks:odd_dirt_block"
+    ]
+}

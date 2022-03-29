@@ -1,0 +1,9 @@
+{
+    "replace": false,
+    "values": [
+        "oddblocks:odd_meat_block",
+        "oddblocks:odd_seafood_block",
+        "oddblocks:odd_monster_mats_block",
+        "oddblocks:odd_farm_seed_block"
+    ]
+}

@@ -1,0 +1,8 @@
+{
+    "replace": false,
+    "values": [
+        "oddblocks:odd_emerald_ore_block",
+        "oddblocks:odd_diamond_ore_block",
+        "oddblocks:odd_lapis_ore_block"
+    ]
+}

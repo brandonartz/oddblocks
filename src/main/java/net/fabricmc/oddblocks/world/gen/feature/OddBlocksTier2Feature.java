@@ -28,15 +28,17 @@ import net.minecraft.world.gen.placementmodifier.RarityFilterPlacementModifier;
 import net.minecraft.world.gen.placementmodifier.SquarePlacementModifier;
 import net.minecraft.world.gen.GenerationStep;
 
-public class OddBlocksTier1Feature extends Feature<DefaultFeatureConfig> {
-    public static final Feature<DefaultFeatureConfig> ODD_TIER1 = Registry.register(Registry.FEATURE, "odd_tier1", new OddBlocksTier1Feature(DefaultFeatureConfig.CODEC));  
+public class OddBlocksTier2Feature extends Feature<DefaultFeatureConfig> {
+    private static final BlockPos START_BLOCK = new BlockPos(8, 3, 8);
+    private static String identifier = "odd_tier2";
+    private static final Feature<DefaultFeatureConfig> ODD_FEATURE = Registry.register(Registry.FEATURE, identifier, new OddBlocksTier2Feature(DefaultFeatureConfig.CODEC));  
     
-    public OddBlocksTier1Feature(Codec<DefaultFeatureConfig> codec) {
+    public OddBlocksTier2Feature(Codec<DefaultFeatureConfig> codec) {
         super(codec);
     }
 
     public static void registerFeature(){  
-        ConfiguredFeature<?, ?> OVERWORLD_ODD_CONFIGURED_FEATURE = new ConfiguredFeature(ODD_TIER1, new DefaultFeatureConfig());
+        ConfiguredFeature<?, ?> OVERWORLD_ODD_CONFIGURED_FEATURE = new ConfiguredFeature(ODD_FEATURE, new DefaultFeatureConfig());
         PlacedFeature OVERWORLD_ODD_PLACED_FEATURE = new PlacedFeature(
             RegistryEntry.of(OVERWORLD_ODD_CONFIGURED_FEATURE),
             Arrays.asList(
@@ -47,9 +49,9 @@ public class OddBlocksTier1Feature extends Feature<DefaultFeatureConfig> {
             )
         );
 
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier("oddblocks", "odd_tier1"), OVERWORLD_ODD_CONFIGURED_FEATURE);
-    	Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier("oddblocks", "odd_tier1"), OVERWORLD_ODD_PLACED_FEATURE);
-        BiomeModifications.addFeature(BiomeSelectors.includeByKey(AbyssBiome.ABYSS_KEY), GenerationStep.Feature.TOP_LAYER_MODIFICATION, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier("oddblocks", "odd_tier1")));
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier("oddblocks", identifier), OVERWORLD_ODD_CONFIGURED_FEATURE);
+    	Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier("oddblocks", identifier), OVERWORLD_ODD_PLACED_FEATURE);
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(AbyssBiome.ABYSS_KEY), GenerationStep.Feature.TOP_LAYER_MODIFICATION, RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier("oddblocks", identifier)));
     }
 
     @Override
@@ -57,8 +59,12 @@ public class OddBlocksTier1Feature extends Feature<DefaultFeatureConfig> {
         StructureWorldAccess structureWorldAccess = context.getWorld();
         BlockPos blockPos = context.getOrigin();
         
+        if(blockPos.isWithinDistance(START_BLOCK, 100)){
+            return true;
+        }
+
         Random random = new Random();
-        Optional<Block> optional = Registry.BLOCK.getEntryList(OddBlocksMod.ODDBLOCKS_TIER1).flatMap(blocks -> blocks.getRandom(random)).map(RegistryEntry::value);
+        Optional<Block> optional = Registry.BLOCK.getEntryList(OddBlocksMod.ODDBLOCKS_TIER2).flatMap(blocks -> blocks.getRandom(random)).map(RegistryEntry::value);
         if (optional.isEmpty()) {
             return false;
         }

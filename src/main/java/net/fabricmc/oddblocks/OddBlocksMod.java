@@ -11,12 +11,17 @@ import net.fabricmc.oddblocks.blocks.OddBlocksTier9;
 import net.fabricmc.oddblocks.world.AbyssGeneratorType;
 import net.fabricmc.oddblocks.world.biome.AbyssBiome;
 import net.fabricmc.oddblocks.world.gen.chunk.AbyssChunkGeneratorSettings;
-import net.fabricmc.oddblocks.world.gen.feature.OddBlocksFeature;
 import net.fabricmc.oddblocks.world.gen.feature.OddBlocksTier1Feature;
+import net.fabricmc.oddblocks.world.gen.feature.OddBlocksTier2Feature;
+import net.fabricmc.oddblocks.world.gen.feature.OddBlocksTier3Feature;
+import net.fabricmc.oddblocks.world.gen.feature.OddBlocksTier4Feature;
+import net.fabricmc.oddblocks.world.gen.feature.OddBlocksTier9Feature;
 import net.fabricmc.oddblocks.world.gen.feature.OddSpawnFeature;
+import net.minecraft.block.Block;
 import net.minecraft.block.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.slf4j.Logger;
@@ -28,6 +33,13 @@ public class OddBlocksMod implements ModInitializer {
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LoggerFactory.getLogger("modid");
+
+	//These TagKeys are used by the Features to get lists of applicable random blocks during generation
+	public static final TagKey<Block> ODDBLOCKS_TIER1 = TagKey.of(Registry.BLOCK_KEY, new Identifier("oddblocks", "oddblocks_tier1_blocks"));
+	public static final TagKey<Block> ODDBLOCKS_TIER2 = TagKey.of(Registry.BLOCK_KEY, new Identifier("oddblocks", "oddblocks_tier2_blocks"));
+	public static final TagKey<Block> ODDBLOCKS_TIER3 = TagKey.of(Registry.BLOCK_KEY, new Identifier("oddblocks", "oddblocks_tier3_blocks"));
+	public static final TagKey<Block> ODDBLOCKS_TIER4 = TagKey.of(Registry.BLOCK_KEY, new Identifier("oddblocks", "oddblocks_tier4_blocks"));
+	public static final TagKey<Block> ODDBLOCKS_TIER9 = TagKey.of(Registry.BLOCK_KEY, new Identifier("oddblocks", "oddblocks_tier9_blocks"));
 
 	public static final OddBlocksTier1 ODD_WOOD = new OddBlocksTier1(FabricBlockSettings.of(Material.WOOD).strength(1.5f, 20.0f));
 	public static final OddBlocksTier1 ODD_DIRT = new OddBlocksTier1(FabricBlockSettings.of(Material.SOIL).strength(0.5f));
@@ -70,6 +82,8 @@ public class OddBlocksMod implements ModInitializer {
 		// Proceed with mild caution.
 
 		LOGGER.info("Hello Fabric world!");
+
+
 		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_dirt_block"), ODD_DIRT);
 		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_meat_block"), ODD_MEAT);
 		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_seafood_block"), ODD_SEAFOOD);
@@ -129,9 +143,11 @@ public class OddBlocksMod implements ModInitializer {
 	
 		//Features ass the OddBlocks to the world in various ways
 		OddSpawnFeature.registerFeature();
-		//OddDirtFeature.registerFeature();
-		//OddStoneFeature.registerFeature();
-		OddBlocksTier1Feature.registerFeature(OddBlocksFeature.ODD_TIER1, "odd_tier1");
+		OddBlocksTier1Feature.registerFeature();
+		OddBlocksTier2Feature.registerFeature();
+		OddBlocksTier3Feature.registerFeature();
+		OddBlocksTier4Feature.registerFeature();
+		OddBlocksTier9Feature.registerFeature();
 
 		//These 3 methods control world generations
 		AbyssChunkGeneratorSettings.registerSettings();

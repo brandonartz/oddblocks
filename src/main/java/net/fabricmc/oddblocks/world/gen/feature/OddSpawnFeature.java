@@ -31,13 +31,14 @@ import net.minecraft.world.gen.GenerationStep;
 public class OddSpawnFeature extends Feature<DefaultFeatureConfig> {
     private static final BlockPos START_BLOCK = new BlockPos(8, 3, 8);
     private static final ChunkPos START_CHUNK = new ChunkPos(START_BLOCK);
+    public static final Feature<DefaultFeatureConfig> ODD_SPAWN = Registry.register(Registry.FEATURE, "oddblocks_spawn", new OddSpawnFeature(DefaultFeatureConfig.CODEC));  
     
     public OddSpawnFeature(Codec<DefaultFeatureConfig> codec) {
         super(codec);
     }
 
     public static void registerFeature(){
-        ConfiguredFeature<?, ?> OVERWORLD_ODD_SPAWN_CONFIGURED_FEATURE = new ConfiguredFeature(OddBlocksFeature.ODD_SPAWN, new DefaultFeatureConfig());
+        ConfiguredFeature<?, ?> OVERWORLD_ODD_SPAWN_CONFIGURED_FEATURE = new ConfiguredFeature(ODD_SPAWN, new DefaultFeatureConfig());
         PlacedFeature OVERWORLD_ODD_SPAWN_PLACED_FEATURE = new PlacedFeature(
             RegistryEntry.of(OVERWORLD_ODD_SPAWN_CONFIGURED_FEATURE),
             Arrays.asList(

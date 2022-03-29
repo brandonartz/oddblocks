@@ -26,7 +26,7 @@ public class OddBlocksTier4 extends Block {
 
     @Override
     public void onBroken(WorldAccess world, BlockPos pos, BlockState state) {
-        if (state.get(LIMIT) != -1 && state.get(LIMIT) >= 0) {
+        if (state.get(LIMIT) != -1 && state.get(LIMIT) > 0) {
             world.setBlockState(pos, state.with(LIMIT, state.get(LIMIT) - 1), Block.NOTIFY_ALL);
         } else if (state.get(LIMIT) == -1) {
             world.setBlockState(pos, state, Block.NOTIFY_ALL);
