@@ -4,6 +4,10 @@
         "oddblocks:odd_meat_block",
         "oddblocks:odd_seafood_block",
         "oddblocks:odd_monster_mats_block",
-        "oddblocks:odd_farm_seed_block"
+        "oddblocks:odd_farm_seed_block",
+        "oddblocks:odd_andesite_block",
+        "oddblocks:odd_diorite_block",
+        "oddblocks:odd_granite_block",
+        "oddblocks:odd_coal_ore_block"
     ]
 }
