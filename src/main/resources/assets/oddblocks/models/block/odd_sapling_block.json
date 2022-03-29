@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "end": "oddblocks:block/odd_block_abyss_end",
-    "side": "oddblocks:block/odd_sapling_block"
+    "end": "oddblocks:block/odd_sapling_top_block",
+    "side": "oddblocks:block/odd_sapling_side_block"
   }
 }

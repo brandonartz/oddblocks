@@ -1,6 +1,7 @@
 {
-    "parent": "block/cube_all",
-    "textures": {
-      "all": "oddblocks:block/odd_flower_block"
-    }
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "oddblocks:block/odd_flower_top_block",
+    "side": "oddblocks:block/odd_flower_side_block"
   }
+}
