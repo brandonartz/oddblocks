@@ -69,14 +69,14 @@ public class OddSpawnFeature extends Feature<DefaultFeatureConfig> {
             OddBlocksMod.LOGGER.info("MAKING SPAWN BLOCK");
             StructureWorldAccess structureWorldAccess = context.getWorld();
             this.setBlockState(structureWorldAccess, START_BLOCK, OddBlocksMod.ODD_DIRT.getDefaultState());
-            this.setBlockState(structureWorldAccess, START_BLOCK.add(1,0,0), Blocks.DIRT.getDefaultState());
-            this.setBlockState(structureWorldAccess, START_BLOCK.add(1,0,1), Blocks.DIRT.getDefaultState());
-            this.setBlockState(structureWorldAccess, START_BLOCK.add(1,0,-1), Blocks.DIRT.getDefaultState());
-            this.setBlockState(structureWorldAccess, START_BLOCK.add(-1,0,-1), Blocks.DIRT.getDefaultState());
-            this.setBlockState(structureWorldAccess, START_BLOCK.add(-1,0,0), Blocks.DIRT.getDefaultState());
-            this.setBlockState(structureWorldAccess, START_BLOCK.add(-1,0,1), Blocks.DIRT.getDefaultState());
-            this.setBlockState(structureWorldAccess, START_BLOCK.add(0,0,-1), Blocks.DIRT.getDefaultState());
-            this.setBlockState(structureWorldAccess, START_BLOCK.add(0,0,1), Blocks.DIRT.getDefaultState());
+            this.setBlockState(structureWorldAccess, START_BLOCK.add(1,0,0), Blocks.GRASS_BLOCK.getDefaultState());
+            this.setBlockState(structureWorldAccess, START_BLOCK.add(1,0,1), Blocks.GRASS_BLOCK.getDefaultState());
+            this.setBlockState(structureWorldAccess, START_BLOCK.add(1,0,-1), Blocks.GRASS_BLOCK.getDefaultState());
+            this.setBlockState(structureWorldAccess, START_BLOCK.add(-1,0,-1), Blocks.GRASS_BLOCK.getDefaultState());
+            this.setBlockState(structureWorldAccess, START_BLOCK.add(-1,0,0), Blocks.GRASS_BLOCK.getDefaultState());
+            this.setBlockState(structureWorldAccess, START_BLOCK.add(-1,0,1), Blocks.GRASS_BLOCK.getDefaultState());
+            this.setBlockState(structureWorldAccess, START_BLOCK.add(0,0,-1), Blocks.GRASS_BLOCK.getDefaultState());
+            this.setBlockState(structureWorldAccess, START_BLOCK.add(0,0,1), Blocks.GRASS_BLOCK.getDefaultState());
             
             return true;
         }
