@@ -26,6 +26,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.dimension.DimensionOptions;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,7 +39,7 @@ public class OddBlocksMod implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger("modid");
 
 	public static final RegistryKey<Biome> ABYSS_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier("oddblocks", "abyss"));
-
+	
 	//These TagKeys are used by the Features to get lists of applicable random blocks during generation
 	public static final TagKey<Block> ODDBLOCKS_TIER1 = TagKey.of(Registry.BLOCK_KEY, new Identifier("oddblocks", "oddblocks_tier1_blocks"));
 	public static final TagKey<Block> ODDBLOCKS_TIER2 = TagKey.of(Registry.BLOCK_KEY, new Identifier("oddblocks", "oddblocks_tier2_blocks"));
@@ -156,5 +157,6 @@ public class OddBlocksMod implements ModInitializer {
 		
 		//Add custom portals
 		CustomPortalBuilder.beginPortal().frameBlock(Blocks.COAL_BLOCK).destDimID(new Identifier("the_nether")).tintColor(131, 66, 184).registerPortal();
+		CustomPortalBuilder.beginPortal().frameBlock(Blocks.SANDSTONE).destDimID(new Identifier("oddblocks:desert")).tintColor(0, 66, 184).registerPortal();
 	}
 }
