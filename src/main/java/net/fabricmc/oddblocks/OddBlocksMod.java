@@ -15,7 +15,9 @@ import net.fabricmc.oddblocks.world.gen.feature.OddBlocksTier3Feature;
 import net.fabricmc.oddblocks.world.gen.feature.OddBlocksTier4Feature;
 import net.fabricmc.oddblocks.world.gen.feature.OddBlocksTier9Feature;
 import net.fabricmc.oddblocks.world.gen.feature.OddSpawnFeature;
+import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroup;
@@ -150,6 +152,9 @@ public class OddBlocksMod implements ModInitializer {
 		OddBlocksTier2Feature.registerFeature();
 		OddBlocksTier3Feature.registerFeature();
 		OddBlocksTier4Feature.registerFeature();
-		OddBlocksTier9Feature.registerFeature();	
+		OddBlocksTier9Feature.registerFeature();
+		
+		//Add custom portals
+		CustomPortalBuilder.beginPortal().frameBlock(Blocks.COAL_BLOCK).destDimID(new Identifier("the_nether")).tintColor(131, 66, 184).registerPortal();
 	}
 }
