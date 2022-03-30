@@ -20,6 +20,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
 import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
@@ -156,7 +157,6 @@ public class OddBlocksMod implements ModInitializer {
 		OddBlocksTier9Feature.registerFeature();
 		
 		//Add custom portals
-		CustomPortalBuilder.beginPortal().frameBlock(Blocks.COAL_BLOCK).destDimID(new Identifier("the_nether")).tintColor(131, 66, 184).registerPortal();
 		CustomPortalBuilder.beginPortal().frameBlock(Blocks.SANDSTONE).destDimID(new Identifier("oddblocks:desert")).tintColor(0, 66, 184).registerPortal();
 	}
 }

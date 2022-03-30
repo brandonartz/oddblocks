@@ -6,11 +6,6 @@
         "entries": [
           {
             "type": "minecraft:item",
-            "name": "oddblocks:odd_andesite_block",
-            "weight": 1
-          },
-          {
-            "type": "minecraft:item",
             "name": "minecraft:andesite",
             "weight": 8
           }
