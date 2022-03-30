@@ -9,6 +9,9 @@ import net.fabricmc.oddblocks.blocks.OddBlocksTier2;
 import net.fabricmc.oddblocks.blocks.OddBlocksTier3;
 import net.fabricmc.oddblocks.blocks.OddBlocksTier4;
 import net.fabricmc.oddblocks.blocks.OddBlocksTier9;
+import net.fabricmc.oddblocks.items.OddBlocksHotKey;
+import net.fabricmc.oddblocks.items.OddBlocksPortalKey;
+import net.fabricmc.oddblocks.items.OddBlocksSandyKey;
 import net.fabricmc.oddblocks.world.gen.feature.OddBlocksTier1Feature;
 import net.fabricmc.oddblocks.world.gen.feature.OddBlocksTier2Feature;
 import net.fabricmc.oddblocks.world.gen.feature.OddBlocksTier3Feature;
@@ -80,7 +83,8 @@ public class OddBlocksMod implements ModInitializer {
 	public static final OddBlocksTier9 ODD_RARE = new OddBlocksTier9(FabricBlockSettings.of(Material.DECORATION).strength(3.0f, 20.0f).requiresTool());
 	public static final OddBlocksTier9 ODD_TOOL = new OddBlocksTier9(FabricBlockSettings.of(Material.DECORATION).strength(2.0f, 20.0f));
 
-
+	public static final OddBlocksSandyKey ODD_SANDY_KEY = new OddBlocksSandyKey(new FabricItemSettings().group(ItemGroup.MISC));
+	public static final OddBlocksHotKey ODD_HOT_KEY = new OddBlocksHotKey(new FabricItemSettings().group(ItemGroup.MISC));
 
 	@Override
 	public void onInitialize() {
@@ -147,6 +151,8 @@ public class OddBlocksMod implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_amethyst_ore_block"), new BlockItem(ODD_AMETHYST_ORE, new FabricItemSettings().group(ItemGroup.MISC)));
 		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_coal_ore_block"), new BlockItem(ODD_COAL_ORE, new FabricItemSettings().group(ItemGroup.MISC)));
 		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_redstone_ore_block"), new BlockItem(ODD_REDSTONE_ORE, new FabricItemSettings().group(ItemGroup.MISC)));
+		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_sandy_key"), ODD_SANDY_KEY);
+		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_hot_key"), ODD_HOT_KEY);
 	
 		//Features add the OddBlocks to the world in various ways
 		OddSpawnFeature.registerFeature();
@@ -157,6 +163,11 @@ public class OddBlocksMod implements ModInitializer {
 		OddBlocksTier9Feature.registerFeature();
 		
 		//Add custom portals
+<<<<<<< Updated upstream
 		CustomPortalBuilder.beginPortal().frameBlock(Blocks.SANDSTONE).destDimID(new Identifier("oddblocks:desert")).tintColor(0, 66, 184).registerPortal();
+=======
+		CustomPortalBuilder.beginPortal().frameBlock(Blocks.COAL_BLOCK).destDimID(new Identifier("the_nether")).tintColor(131, 66, 184).lightWithItem(ODD_HOT_KEY).registerPortal();
+		CustomPortalBuilder.beginPortal().frameBlock(Blocks.SANDSTONE).destDimID(new Identifier("oddblocks:desert")).tintColor(0, 66, 184).lightWithItem(ODD_SANDY_KEY).registerPortal();
+>>>>>>> Stashed changes
 	}
 }
