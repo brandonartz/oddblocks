@@ -2,7 +2,6 @@
     "replace": false,
     "values": [
         "oddblocks:odd_music_disc_block",
-        "oddblocks:odd_rare_block",
-        "oddblocks:odd_tool_block"
+        "oddblocks:odd_rare_block"
     ]
 }

@@ -3,6 +3,8 @@
     "values": [
         "oddblocks:odd_emerald_ore_block",
         "oddblocks:odd_diamond_ore_block",
-        "oddblocks:odd_lapis_ore_block"
+        "oddblocks:odd_lapis_ore_block",
+        "oddblocks:odd_amethyst_ore_block",
+        "oddblocks:odd_redstone_ore_block"
     ]
 }

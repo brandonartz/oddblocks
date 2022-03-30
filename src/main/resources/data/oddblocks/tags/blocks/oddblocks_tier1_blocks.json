@@ -3,6 +3,8 @@
     "values": [
         "oddblocks:odd_stone_block",
         "oddblocks:odd_wood_block",
-        "oddblocks:odd_dirt_block"
+        "oddblocks:odd_dirt_block",
+        "oddblocks:odd_farm_egg_block",
+        "oddblocks:odd_flower_block"
     ]
 }

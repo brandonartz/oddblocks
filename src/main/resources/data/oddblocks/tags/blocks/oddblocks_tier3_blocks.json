@@ -2,7 +2,11 @@
     "replace": false,
     "values": [
         "oddblocks:odd_copper_ore_block",
+        "oddblocks:odd_monster_mats_block",
         "oddblocks:odd_iron_ore_block",
-        "oddblocks:odd_gold_ore_block"
+        "oddblocks:odd_gold_ore_block",
+        "oddblocks:odd_pet_egg_block",
+        "oddblocks:odd_sapling_block",
+        "oddblocks:odd_tool_block"
     ]
 }
