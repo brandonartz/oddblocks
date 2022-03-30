@@ -12,11 +12,18 @@ import net.minecraft.world.WorldAccess;
 @Mixin(Block.class)
 public class OddBlocksTier2 extends Block {
 
-    public static final IntProperty LIMIT = IntProperty.of("limit", 0, 200);
+    //Set maximum mining count
+    public static final int maxMining = 200;
+    public static final IntProperty LIMIT = IntProperty.of("limit", 0, maxMining);
     
     public OddBlocksTier2(Settings settings, int max) {
         super(settings);
         setDefaultState(getStateManager().getDefaultState().with(LIMIT, max));
+    }
+
+    public OddBlocksTier2(Settings settings) {
+        super(settings);
+        setDefaultState(getStateManager().getDefaultState().with(LIMIT, maxMining));
     }
 
     @Override
