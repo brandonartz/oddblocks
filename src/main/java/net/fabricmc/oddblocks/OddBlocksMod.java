@@ -1,6 +1,5 @@
 package net.fabricmc.oddblocks;
 
-import net.fabricmc.api.EnvType;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -10,7 +9,6 @@ import net.fabricmc.oddblocks.blocks.OddBlocksTier3;
 import net.fabricmc.oddblocks.blocks.OddBlocksTier4;
 import net.fabricmc.oddblocks.blocks.OddBlocksTier9;
 import net.fabricmc.oddblocks.items.OddBlocksHotKey;
-import net.fabricmc.oddblocks.items.OddBlocksPortalKey;
 import net.fabricmc.oddblocks.items.OddBlocksSandyKey;
 import net.fabricmc.oddblocks.world.gen.feature.OddBlocksTier1Feature;
 import net.fabricmc.oddblocks.world.gen.feature.OddBlocksTier2Feature;
@@ -23,14 +21,12 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
 import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.dimension.DimensionOptions;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
