@@ -1,12 +1,12 @@
 {
-    "type": "minecraft:overworld",
+    "type": "oddblocks:lush_caves",
     "generator": {
       "type": "minecraft:noise",
       "seed": 0,
-      "settings": "minecraft:overworld",
+      "settings": "minecraft:caves",
       "biome_source": {
         "type": "minecraft:fixed",
-        "biome": "oddblocks:manari"
+        "biome": "minecraft:lush_caves"
       }
     }
   }

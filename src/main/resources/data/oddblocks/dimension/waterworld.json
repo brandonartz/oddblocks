@@ -3,11 +3,12 @@
     "generator": {
       "type": "minecraft:noise",
       "seed": 0,
-      "settings": "minecraft:overworld",
+      "settings": "oddblocks:waterworld",
       "biome_source": {
-        "type": "minecraft:fixed",
-        "biome": "oddblocks:manari"
+        "type": "minecraft:multi_noise",
+        "preset": "minecraft:overworld"
       }
     }
   }
+  
   
