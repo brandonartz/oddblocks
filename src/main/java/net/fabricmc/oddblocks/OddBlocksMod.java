@@ -165,5 +165,6 @@ public class OddBlocksMod implements ModInitializer {
 		//Add custom portals
 		CustomPortalBuilder.beginPortal().frameBlock(Blocks.COAL_BLOCK).destDimID(new Identifier("the_nether")).tintColor(131, 66, 184).lightWithItem(ODD_HOT_KEY).registerPortal();
 		CustomPortalBuilder.beginPortal().frameBlock(Blocks.SANDSTONE).destDimID(new Identifier("oddblocks:desert")).tintColor(0, 66, 184).lightWithItem(ODD_SANDY_KEY).registerPortal();
+		CustomPortalBuilder.beginPortal().frameBlock(Blocks.GOLD_BLOCK).destDimID(new Identifier("oddblocks:manari")).tintColor(0, 66, 184).registerPortal();
 	}
 }
