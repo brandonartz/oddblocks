@@ -16,7 +16,38 @@
     }
   },
   "spawners": {
-    "monster": [],
+    "monster": [
+      {
+        "type": "minecraft:bat",
+        "weight": 1,
+        "minCount": 0,
+        "maxCount": 4
+      },
+      {
+        "type": "minecraft:zombie",
+        "weight": 2,
+        "minCount": 0,
+        "maxCount": 4
+      },
+      {
+        "type": "minecraft:skeleton",
+        "weight": 1,
+        "minCount": 0,
+        "maxCount": 2
+      },
+      {
+        "type": "minecraft:slime",
+        "weight": 1,
+        "minCount": 0,
+        "maxCount": 4
+      },
+      {
+        "type": "minecraft:enderman",
+        "weight": 1,
+        "minCount": 0,
+        "maxCount": 2
+      }
+    ],
     "creature": [],
     "ambient": [],
     "axolotls": [],
