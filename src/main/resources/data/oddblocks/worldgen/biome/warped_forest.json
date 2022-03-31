@@ -3,13 +3,14 @@
     "downfall": 0,
     "precipitation": "none",
     "category": "nether",
+    "creature_spawn_probability": 1,
     "effects": {
-      "sky_color": 7254527,
-      "fog_color": 1705242,
+      "sky_color": 8388627,
+      "fog_color": 10354846,
       "water_color": 4159204,
       "water_fog_color": 329011,
-      "grass_color": 8847513,
-      "foliage_color": 15728804,
+      "grass_color": 13893872,
+      "foliage_color": 7798968,
       "ambient_sound": "minecraft:ambient.warped_forest.loop",
       "mood_sound": {
         "sound": "minecraft:ambient.warped_forest.mood",
@@ -35,7 +36,7 @@
       }
     },
     "spawners": {
-      "monster": [
+        "monster": [
         {
           "type": "minecraft:piglin_brute",
           "weight": 1,
@@ -65,26 +66,20 @@
           "weight": 1,
           "minCount": 2,
           "maxCount": 4
-        },  
+        },
         {
           "type": "minecraft:enderman",
           "weight": 1,
-          "minCount": 8,
-          "maxCount": 12
+          "minCount": 4,
+          "maxCount": 4
         }
       ],
       "creature": [
         {
-          "type": "minecraft:mooshroom",
-          "weight": 50,
-          "minCount": 6,
-          "maxCount": 12
-        }, 
-        {
           "type": "minecraft:strider",
           "weight": 60,
-          "minCount": 4,
-          "maxCount": 9
+          "minCount": 1,
+          "maxCount": 2
         }
       ],
       "ambient": [],

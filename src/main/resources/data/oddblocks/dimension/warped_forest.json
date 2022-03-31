@@ -1,13 +1,13 @@
 {
     "type": "minecraft:the_nether",
-        "generator": {
-            "type": "minecraft:noise",
-            "seed": 936861528,
-            "settings": "minecraft:nether",
-            "biome_source": {
-                "type": "minecraft:fixed",
-                "biome": "oddblocks:warped_forest"
-            }    
-        }
-
-}    
+    "generator": {
+      "type": "minecraft:noise",
+      "seed": -86335589,
+      "settings": "minecraft:nether",
+      "biome_source": {
+        "type": "minecraft:fixed",
+        "biome": "oddblocks:warped_forest"
+      }
+    }
+  }
+  
