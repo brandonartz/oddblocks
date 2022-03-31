@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "oddblocks",
   "version": "${version}",
 
   "name": "Odd Blocks Mod",
@@ -14,7 +14,7 @@
   },
 
   "license": "",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/oddblocks/icon.png",
 
   "environment": "*",
   "entrypoints": {
@@ -29,7 +29,7 @@
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "oddblocks.mixins.json"
   ],
 
   "depends": {
