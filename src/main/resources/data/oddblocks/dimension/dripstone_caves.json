@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:overworld",
+    "generator": {
+      "type": "minecraft:noise",
+      "seed": 2140426587,
+      "settings": "minecraft:caves",
+      "biome_source": {
+        "type": "minecraft:fixed",
+        "biome": "oddblocks:dripstone_caves"
+        
+      }
+    }
+}
+  
