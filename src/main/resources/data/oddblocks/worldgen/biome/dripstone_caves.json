@@ -1,5 +1,4 @@
 {
-    "parameters": {
         "temperature": 0.8,
         "downfall": 0.4,
         "precipitation": "none",
@@ -178,6 +177,6 @@
           [
             "minecraft:freeze_top_layer"
           ]
-        ]
-    }
+    ]
+    
 }
