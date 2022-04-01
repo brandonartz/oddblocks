@@ -13,7 +13,7 @@ import net.minecraft.world.WorldAccess;
 public class OddBlocksTier2 extends Block {
 
     //Set maximum mining count
-    public static final int maxMining = 200;
+    public static final int maxMining = 199;
     public static final IntProperty LIMIT = IntProperty.of("limit", 0, maxMining);
     
     public OddBlocksTier2(Settings settings, int max) {
