@@ -3,6 +3,8 @@ package net.fabricmc.oddblocks;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
+//import net.fabricmc.oddblocks.block_entity.OddBlockEntity;
 import net.fabricmc.oddblocks.blocks.OddBlocksTier1;
 import net.fabricmc.oddblocks.blocks.OddBlocksTier2;
 import net.fabricmc.oddblocks.blocks.OddBlocksTier3;
@@ -20,6 +22,7 @@ import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.tag.TagKey;
@@ -46,6 +49,8 @@ public class OddBlocksMod implements ModInitializer {
 	public static final TagKey<Block> ODDBLOCKS_TIER3 = TagKey.of(Registry.BLOCK_KEY, new Identifier("oddblocks", "oddblocks_tier3_blocks"));
 	public static final TagKey<Block> ODDBLOCKS_TIER4 = TagKey.of(Registry.BLOCK_KEY, new Identifier("oddblocks", "oddblocks_tier4_blocks"));
 	public static final TagKey<Block> ODDBLOCKS_TIER9 = TagKey.of(Registry.BLOCK_KEY, new Identifier("oddblocks", "oddblocks_tier9_blocks"));
+
+	//public static BlockEntityType<OddBlockEntity> ODD_BLOCK_ENTITY;
 
 	public static final OddBlocksTier1 ODD_WOOD = new OddBlocksTier1(FabricBlockSettings.of(Material.WOOD).strength(1.5f, 20.0f));
 	public static final OddBlocksTier1 ODD_DIRT = new OddBlocksTier1(FabricBlockSettings.of(Material.SOIL).strength(0.5f));
@@ -90,6 +95,7 @@ public class OddBlocksMod implements ModInitializer {
 
 		LOGGER.info("Hello Fabric world!");
 
+		//ODD_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "oddblocks:odd_dirt_block_entity", FabricBlockEntityTypeBuilder.create(OddBlockEntity::new, ODD_DIRT).build(null));
 
 		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_dirt_block"), ODD_DIRT);
 		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_meat_block"), ODD_MEAT);

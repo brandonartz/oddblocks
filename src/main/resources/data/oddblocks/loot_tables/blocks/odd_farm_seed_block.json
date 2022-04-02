@@ -7,11 +7,6 @@
         "entries": [
           {
             "type": "minecraft:item",
-            "name": "oddblocks:odd_farm_seed_block",
-            "weight": 1
-          },
-          {
-            "type": "minecraft:item",
             "name": "minecraft:wheat_seeds",
             "weight": 5
           },

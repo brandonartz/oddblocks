@@ -7,11 +7,6 @@
         "entries": [
           {
             "type": "minecraft:item",
-            "name": "oddblocks:odd_music_disc_block",
-            "weight": 1
-          },
-          {
-            "type": "minecraft:item",
             "name": "minecraft:music_disc_13",
             "weight": 1
           },

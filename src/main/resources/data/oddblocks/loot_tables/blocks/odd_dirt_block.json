@@ -7,17 +7,17 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:dirt",
-          "weight": 100
+          "weight": 1000
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:sand",
-          "weight": 10
+          "weight": 50
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:gravel",
-          "weight": 5
+          "weight": 50
         },
         {
           "type":"minecraft:item",
