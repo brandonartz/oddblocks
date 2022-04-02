@@ -37,7 +37,7 @@ public class OddBlocksTier4Feature extends Feature<DefaultFeatureConfig> {
         PlacedFeature OVERWORLD_ODD_PLACED_FEATURE = new PlacedFeature(
             RegistryEntry.of(OVERWORLD_ODD_CONFIGURED_FEATURE),
             Arrays.asList(
-              RarityFilterPlacementModifier.of(40), 
+              RarityFilterPlacementModifier.of(85), 
               PlacedFeatures.createCountExtraModifier(1, 0.25f, 0), 
               SquarePlacementModifier.of(), 
               HeightRangePlacementModifier.uniform(YOffset.fixed(68), YOffset.fixed(108))
