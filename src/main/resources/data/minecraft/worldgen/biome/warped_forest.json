@@ -97,13 +97,16 @@
         "oddblocks:warped_forest/trees"
       ],
       [
+        "minecraft:spring_open",  
         "minecraft:ore_blackstone",
         "minecraft:ore_gold_nether",
         "minecraft:ore_quartz_nether",
+        "minecraft:spring_closed",
         "minecraft:ore_ancient_debris_large",
         "minecraft:ore_debris_small"
       ],
       [
+        "minecraft:spring_lava",  
         "minecraft:warped_fungi",
         "minecraft:nether_sprouts"
       ],
