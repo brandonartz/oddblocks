@@ -6,11 +6,6 @@
         "entries": [
           {
             "type": "minecraft:item",
-            "name": "oddblocks:odd_farm_egg_block",
-            "weight": 1
-          },
-          {
-            "type": "minecraft:item",
             "name": "minecraft:pig_spawn_egg",
             "weight": 5
           },

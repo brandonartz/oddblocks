@@ -6,11 +6,6 @@
         "entries": [
           {
             "type": "minecraft:item",
-            "name": "oddblocks:odd_seafood_block",
-            "weight": 1
-          },
-          {
-            "type": "minecraft:item",
             "name": "minecraft:cod",
             "weight": 3
           },

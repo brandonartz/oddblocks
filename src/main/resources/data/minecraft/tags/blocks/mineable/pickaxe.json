@@ -1,0 +1,18 @@
+{
+    "replace": false,
+    "values": [
+      "oddblocks:odd_stone_block",
+      "oddblocks:odd_copper_ore_block",
+      "oddblocks:odd_iron_ore_block",
+      "oddblocks:odd_gold_ore_block",
+      "oddblocks:odd_diamond_ore_block",
+      "oddblocks:odd_emerald_ore_block",
+      "oddblocks:odd_redstone_ore_block",
+      "oddblocks:odd_amethyst_ore_block",
+      "oddblocks:odd_lapis_ore_block",
+      "oddblocks:odd_coal_ore_block",
+      "oddblocks:odd_diorite_block",
+      "oddblocks:odd_andesite_block",
+      "oddblocks:odd_granite_block"
+    ]
+  }

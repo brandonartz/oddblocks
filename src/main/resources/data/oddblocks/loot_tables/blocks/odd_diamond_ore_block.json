@@ -6,13 +6,13 @@
         "entries": [
           {
             "type": "minecraft:item",
-            "name": "oddblocks:odd_diamond_ore_block",
-            "weight": 1
+            "name": "minecraft:diamond",
+            "weight": 1000
           },
           {
             "type": "minecraft:item",
-            "name": "minecraft:diamond",
-            "weight": 4
+            "name": "minecraft:obsidian",
+            "weight": 50
           }
         ],
         "conditions": [

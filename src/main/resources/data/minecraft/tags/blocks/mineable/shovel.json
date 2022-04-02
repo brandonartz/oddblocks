@@ -1,0 +1,8 @@
+{
+    "replace": false,
+    "values": [
+      "oddblocks:odd_dirt_block",
+      "oddblocks:odd_flower_block",
+      "oddblocks:odd_farm_seed_block"
+    ]
+  }

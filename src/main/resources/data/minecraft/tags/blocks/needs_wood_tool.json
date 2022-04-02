@@ -1,0 +1,10 @@
+{
+    "replace": false,
+    "values": [
+      "oddblocks:odd_stone_block",
+      "oddblocks:odd_coal_ore_block",
+      "oddblocks:odd_diorite_block",
+      "oddblocks:odd_andesite_block",
+      "oddblocks:odd_granite_block"
+    ]
+  }

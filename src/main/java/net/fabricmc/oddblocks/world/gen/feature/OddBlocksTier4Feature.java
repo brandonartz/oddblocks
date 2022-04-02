@@ -24,7 +24,7 @@ import net.minecraft.world.gen.placementmodifier.RarityFilterPlacementModifier;
 import net.minecraft.world.gen.placementmodifier.SquarePlacementModifier;
 
 public class OddBlocksTier4Feature extends Feature<DefaultFeatureConfig> {
-    private static final BlockPos START_BLOCK = new BlockPos(8, 3, 8);
+    private static final BlockPos START_BLOCK = new BlockPos(0, 68, 0);
     private static String identifier = "odd_tier4"; 
     
     public OddBlocksTier4Feature(Codec<DefaultFeatureConfig> codec) {
@@ -37,10 +37,10 @@ public class OddBlocksTier4Feature extends Feature<DefaultFeatureConfig> {
         PlacedFeature OVERWORLD_ODD_PLACED_FEATURE = new PlacedFeature(
             RegistryEntry.of(OVERWORLD_ODD_CONFIGURED_FEATURE),
             Arrays.asList(
-              RarityFilterPlacementModifier.of(100), 
+              RarityFilterPlacementModifier.of(85), 
               PlacedFeatures.createCountExtraModifier(1, 0.25f, 0), 
               SquarePlacementModifier.of(), 
-              HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(200))
+              HeightRangePlacementModifier.uniform(YOffset.fixed(68), YOffset.fixed(108))
             )
         );
 
@@ -53,7 +53,7 @@ public class OddBlocksTier4Feature extends Feature<DefaultFeatureConfig> {
         StructureWorldAccess structureWorldAccess = context.getWorld();
         BlockPos blockPos = context.getOrigin();
         
-        if(blockPos.isWithinDistance(START_BLOCK, 300)){
+        if(blockPos.isWithinDistance(START_BLOCK, 400)){
             return true;
         }
 
@@ -63,7 +63,7 @@ public class OddBlocksTier4Feature extends Feature<DefaultFeatureConfig> {
             return false;
         }
         
-        OddBlocksMod.LOGGER.info("MAKING: " + optional.get().toString());
+        OddBlocksMod.LOGGER.info("MAKING: " + optional.get().toString() + "at " + blockPos.toString());
         this.setBlockState(structureWorldAccess, blockPos.add(0,0,0), optional.get().getDefaultState());
      
         return true;
