@@ -7,17 +7,17 @@
           {
             "type": "minecraft:item",
             "name": "minecraft:raw_iron",
-            "weight": 1
+            "weight": 10
           },
           {
             "type": "minecraft:item",
             "name": "minecraft:lapis_lazuli",
-            "weight": 1
+            "weight": 10
           },
           {
             "type": "minecraft:item",
             "name": "minecraft:raw_gold",
-            "weight": 8
+            "weight": 1000
           }
         ],
         "conditions": [

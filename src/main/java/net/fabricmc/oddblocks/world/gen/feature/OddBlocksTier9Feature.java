@@ -24,7 +24,7 @@ import net.minecraft.world.gen.placementmodifier.RarityFilterPlacementModifier;
 import net.minecraft.world.gen.placementmodifier.SquarePlacementModifier;
 
 public class OddBlocksTier9Feature extends Feature<DefaultFeatureConfig> {
-    private static final BlockPos START_BLOCK = new BlockPos(8, 3, 8);
+    private static final BlockPos START_BLOCK = new BlockPos(0, 68, 0);
     private static String identifier = "odd_tier9";
 
     public OddBlocksTier9Feature(Codec<DefaultFeatureConfig> codec) {
@@ -40,7 +40,7 @@ public class OddBlocksTier9Feature extends Feature<DefaultFeatureConfig> {
               RarityFilterPlacementModifier.of(100), 
               PlacedFeatures.createCountExtraModifier(1, 0.25f, 0), 
               SquarePlacementModifier.of(), 
-              HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(200))
+              HeightRangePlacementModifier.uniform(YOffset.fixed(68), YOffset.fixed(108))
             )
         );
 
@@ -53,7 +53,7 @@ public class OddBlocksTier9Feature extends Feature<DefaultFeatureConfig> {
         StructureWorldAccess structureWorldAccess = context.getWorld();
         BlockPos blockPos = context.getOrigin();
         
-        if(blockPos.isWithinDistance(START_BLOCK, 500)){
+        if(blockPos.isWithinDistance(START_BLOCK, 700)){
             return true;
         }
 

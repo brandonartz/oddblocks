@@ -7,12 +7,12 @@
           {
             "type": "minecraft:item",
             "name": "minecraft:amethyst_shard",
-            "weight": 8
+            "weight": 1000
           },
           {
             "type": "minecraft:item",
             "name": "minecraft:emerald",
-            "weight": 1
+            "weight": 10
           }
         ],
         "conditions": [

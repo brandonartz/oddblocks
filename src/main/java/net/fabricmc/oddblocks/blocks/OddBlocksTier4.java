@@ -1,11 +1,8 @@
 package net.fabricmc.oddblocks.blocks;
 
 import org.spongepowered.asm.mixin.Mixin;
-//import org.spongepowered.asm.mixin.Overwrite;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.WorldAccess;
 

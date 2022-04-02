@@ -24,7 +24,9 @@ import net.minecraft.world.gen.placementmodifier.RarityFilterPlacementModifier;
 import net.minecraft.world.gen.placementmodifier.SquarePlacementModifier;
 
 public class OddBlocksTier1Feature extends Feature<DefaultFeatureConfig> {
-    
+    private static final BlockPos START_BLOCK = new BlockPos(0, 68, 0);
+
+
     public OddBlocksTier1Feature(Codec<DefaultFeatureConfig> codec) {
         super(codec);
     }
@@ -38,7 +40,7 @@ public class OddBlocksTier1Feature extends Feature<DefaultFeatureConfig> {
               RarityFilterPlacementModifier.of(100), 
               PlacedFeatures.createCountExtraModifier(1, 0.25f, 0), 
               SquarePlacementModifier.of(), 
-              HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(200))
+              HeightRangePlacementModifier.uniform(YOffset.fixed(68), YOffset.fixed(108))
             )
         );
 
@@ -51,6 +53,10 @@ public class OddBlocksTier1Feature extends Feature<DefaultFeatureConfig> {
         StructureWorldAccess structureWorldAccess = context.getWorld();
         BlockPos blockPos = context.getOrigin();
         
+        if(blockPos.isWithinDistance(START_BLOCK, 200)){
+            return true;
+        }
+
         Random random = new Random();
         Optional<Block> optional = Registry.BLOCK.getEntryList(OddBlocksMod.ODDBLOCKS_TIER1).flatMap(blocks -> blocks.getRandom(random)).map(RegistryEntry::value);
         if (optional.isEmpty()) {

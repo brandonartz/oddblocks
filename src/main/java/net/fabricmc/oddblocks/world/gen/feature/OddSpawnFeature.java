@@ -22,7 +22,7 @@ import net.minecraft.world.gen.placementmodifier.HeightRangePlacementModifier;
 import net.minecraft.world.gen.placementmodifier.SquarePlacementModifier;
 
 public class OddSpawnFeature extends Feature<DefaultFeatureConfig> {
-    private static final BlockPos START_BLOCK = new BlockPos(8, 3, 8);
+    private static final BlockPos START_BLOCK = new BlockPos(0, 68, 0);
     private static final ChunkPos START_CHUNK = new ChunkPos(START_BLOCK);
 
     public OddSpawnFeature(Codec<DefaultFeatureConfig> codec) {
@@ -69,6 +69,10 @@ public class OddSpawnFeature extends Feature<DefaultFeatureConfig> {
             this.setBlockState(structureWorldAccess, START_BLOCK.add(-1,0,1), Blocks.GRASS_BLOCK.getDefaultState());
             this.setBlockState(structureWorldAccess, START_BLOCK.add(0,0,-1), Blocks.GRASS_BLOCK.getDefaultState());
             this.setBlockState(structureWorldAccess, START_BLOCK.add(0,0,1), Blocks.GRASS_BLOCK.getDefaultState());
+
+
+            //Make a gurenteed wood odd block
+            this.setBlockState(structureWorldAccess, START_BLOCK.add(0,2,34), OddBlocksMod.ODD_WOOD.getDefaultState());
             
             return true;
         }
