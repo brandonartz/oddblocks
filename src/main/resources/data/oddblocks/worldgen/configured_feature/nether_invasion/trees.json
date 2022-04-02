@@ -1,0 +1,25 @@
+{
+	"type": "minecraft:random_selector",
+	"config": {
+		"features": [
+			{
+				"chance": 0.3333,
+				"feature": {
+					"feature": "oddblocks:nether_invasion/tree_1",
+					"placement": []
+				}
+			},
+			{
+				"chance": 0.4444,
+				"feature": {
+					"feature": "oddblocks:nether_invasion/tree_2",
+					"placement": []
+				}
+			}
+		],
+		"default": {
+			"feature": "oddblocks:nether_invasion/bush",
+			"placement": []
+		}
+	}
+}

@@ -1,13 +1,13 @@
 {
-    "type": "oddblocks:dripstone_caves",
+    "type": "minecraft:overworld",
     "generator": {
       "type": "minecraft:noise",
       "seed": 0,
-      "settings": "minecraft:caves",
+      "settings": "minecraft:overworld",
       "biome_source": {
         "type": "minecraft:fixed",
-        "biome": "oddblocks:dripstone_caves"    
+        "biome": "minecraft:nether_invasion"
       }
     }
-}
+  }
   
