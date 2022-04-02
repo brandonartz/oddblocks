@@ -1,0 +1,126 @@
+{
+    "temperature": 1,
+    "downfall": 0,
+    "precipitation": "rain",
+    "category": "nether",
+    "effects": {
+      "sky_color": 11010048,
+      "fog_color": 7926435,
+      "water_color": 6227719,
+      "water_fog_color": 10307656,
+      "grass_color": 13369344,
+      "foliage_color": 4980991,
+      "ambient_sound": "minecraft:ambient.nether_wastes.loop",
+      "mood_sound": {
+        "sound": "minecraft:ambient.nether_wastes.mood",
+        "tick_delay": 900,
+        "block_search_extent": 8,
+        "offset": 2
+      },
+      "additions_sound": {
+        "sound": "minecraft:ambient.nether_wastes.additions",
+        "tick_chance": 0.0111
+      },
+      "music": {
+        "sound": "minecraft:music.nether.nether_wastes",
+        "min_delay": 3000,
+        "max_delay": 6000,
+        "replace_current_music": false
+      },
+      "particle": {
+        "options": {
+          "type": "crimson_spore"
+        },
+        "probability": 0.000333435
+      }
+    },
+    "spawners": {
+      "monster": [
+        {
+          "type": "minecraft:ghast",
+          "weight": 20,
+          "minCount": 1,
+          "maxCount": 2  
+        },  
+        {
+          "type": "minecraft:zombified_piglin",
+          "weight": 200,
+          "minCount": 4,
+          "maxCount": 6
+        },
+        {
+          "type": "minecraft:magma_cube",
+          "weight": 20,
+          "minCount": 2,
+          "maxCount": 4
+        },
+        {
+          "type": "minecraft:piglin",
+          "weight": 50,
+          "minCount": 4,
+          "maxCount": 4
+        }
+      ],
+      "creature": [
+        {
+          "type": "minecraft:strider",
+          "weight": 60,
+          "minCount": 2,
+          "maxCount": 3
+        }
+      ],
+      "axolotls": [],
+      "water_creature": [],
+      "water_ambient": [],
+      "misc": []
+    },
+    "spawn_costs": {},
+    "carvers": {
+      "air": [
+        "minecraft:nether_cave",
+        "minecraft:cave_extra_underground",
+        "minecraft:canyon"
+      ]
+    },
+    "features": [
+      [],
+      [
+        "oddblocks:nether_invasion/deltas",
+        "minecraft:lake_lava_underground",
+        "minecraft:lake_lava_surface"
+      ],
+      [ 
+        "minecraft:crimson_forest_vegetation",  
+        "minecraft:crimson_fungi"
+      ],
+      [],
+      [
+        "minecraft:ore_blackstone",
+        "minecraft:ore_gravel_nether"
+      ],
+      [
+        "minecraft:ore_quartz_nether"
+      ],
+      [
+        "oddblocks:nether_invasion/bush",
+        "oddblocks:nether_invasion/trees"
+      ],
+      [
+        "minecraft:spring_lava"
+      ],
+      [
+        "minecraft:spring_open",
+        "minecraft:patch_fire",
+        "minecraft:acacia",
+        "minecraft:ore_soul_sand",
+        "minecraft:glowstone_extra",
+        "minecraft:glowstone",
+        "minecraft:spring_closed",
+        "minecraft:patch_grass_badlands",
+        "minecraft:patch_dead_bush_badlands"
+      ],
+      [
+        "minecraft:lake_lava_surface"
+      ]
+    ]
+  }

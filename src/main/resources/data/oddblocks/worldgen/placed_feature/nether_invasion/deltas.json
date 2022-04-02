@@ -1,0 +1,12 @@
+{
+    "feature": "oddblocks:nether_invasion/deltas",
+    "placement": [
+      {
+              "type": "minecraft:biome"
+          },
+      {
+        "type": "minecraft:count_on_every_layer",
+        "count": 3
+      }
+    ]
+  }
