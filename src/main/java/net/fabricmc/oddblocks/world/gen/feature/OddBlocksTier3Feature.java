@@ -37,7 +37,7 @@ public class OddBlocksTier3Feature extends Feature<DefaultFeatureConfig> {
         PlacedFeature OVERWORLD_ODD_PLACED_FEATURE = new PlacedFeature(
             RegistryEntry.of(OVERWORLD_ODD_CONFIGURED_FEATURE),
             Arrays.asList(
-              RarityFilterPlacementModifier.of(100), 
+              RarityFilterPlacementModifier.of(60), 
               PlacedFeatures.createCountExtraModifier(1, 0.25f, 0), 
               SquarePlacementModifier.of(), 
               HeightRangePlacementModifier.uniform(YOffset.fixed(68), YOffset.fixed(108))
@@ -63,7 +63,7 @@ public class OddBlocksTier3Feature extends Feature<DefaultFeatureConfig> {
             return false;
         }
         
-        OddBlocksMod.LOGGER.info("MAKING: " + optional.get().toString());
+        OddBlocksMod.LOGGER.info("MAKING: " + optional.get().toString() + "at " + blockPos.toString());
         this.setBlockState(structureWorldAccess, blockPos.add(0,0,0), optional.get().getDefaultState());
      
         return true;

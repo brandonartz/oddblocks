@@ -71,8 +71,8 @@ public class OddSpawnFeature extends Feature<DefaultFeatureConfig> {
             this.setBlockState(structureWorldAccess, START_BLOCK.add(0,0,1), Blocks.GRASS_BLOCK.getDefaultState());
 
 
-            //Make a gurenteed wood odd block
-            this.setBlockState(structureWorldAccess, START_BLOCK.add(0,2,34), OddBlocksMod.ODD_WOOD.getDefaultState());
+            //Make a guaranteed wood odd block
+            this.setBlockState(structureWorldAccess, START_BLOCK.add(0,2,30), OddBlocksMod.ODD_WOOD.getDefaultState());
             
             return true;
         }

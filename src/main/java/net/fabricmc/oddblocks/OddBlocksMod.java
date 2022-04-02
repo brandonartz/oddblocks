@@ -3,8 +3,6 @@ package net.fabricmc.oddblocks;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
-//import net.fabricmc.oddblocks.block_entity.OddBlockEntity;
 import net.fabricmc.oddblocks.blocks.OddBlocksTier1;
 import net.fabricmc.oddblocks.blocks.OddBlocksTier2;
 import net.fabricmc.oddblocks.blocks.OddBlocksTier3;
@@ -22,7 +20,6 @@ import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.tag.TagKey;
@@ -165,7 +162,6 @@ public class OddBlocksMod implements ModInitializer {
 		OddBlocksTier9Feature.registerFeature();
 		
 		//Add custom portals
-
 		CustomPortalBuilder.beginPortal().frameBlock(Blocks.COAL_BLOCK).destDimID(new Identifier("the_nether")).tintColor(131, 66, 184).lightWithItem(ODD_HOT_KEY).registerPortal();
 		CustomPortalBuilder.beginPortal().frameBlock(Blocks.SANDSTONE).destDimID(new Identifier("oddblocks:desert")).tintColor(0, 66, 184).lightWithItem(ODD_SANDY_KEY).registerPortal();
 		CustomPortalBuilder.beginPortal().frameBlock(Blocks.GOLD_BLOCK).destDimID(new Identifier("oddblocks:manari")).tintColor(0, 66, 184).registerPortal();

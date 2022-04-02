@@ -53,7 +53,7 @@ public class OddBlocksTier1Feature extends Feature<DefaultFeatureConfig> {
         StructureWorldAccess structureWorldAccess = context.getWorld();
         BlockPos blockPos = context.getOrigin();
         
-        if(blockPos.isWithinDistance(START_BLOCK, 200)){
+        if(blockPos.isWithinDistance(START_BLOCK, 100)){
             return true;
         }
 
@@ -63,7 +63,7 @@ public class OddBlocksTier1Feature extends Feature<DefaultFeatureConfig> {
             return false;
         }
         
-        OddBlocksMod.LOGGER.info("MAKING: " + optional.get().toString());
+        OddBlocksMod.LOGGER.info("MAKING: " + optional.get().toString() + "at " + blockPos.toString());
         this.setBlockState(structureWorldAccess, blockPos.add(0,0,0), optional.get().getDefaultState());
      
         return true;
