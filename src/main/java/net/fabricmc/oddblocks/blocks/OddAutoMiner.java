@@ -1,9 +1,7 @@
 package net.fabricmc.oddblocks.blocks;
 
 import java.util.Random;
-
 import javax.annotation.Nullable;
-
 import net.fabricmc.oddblocks.OddBlocksMod;
 import net.fabricmc.oddblocks.block_entity.OddAutoMinerBlockEntity;
 import net.minecraft.block.Block;
@@ -21,7 +19,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
-public class OddAutoMiner extends BlockWithEntity {
+public abstract class OddAutoMiner extends BlockWithEntity {
     public OddAutoMiner(Settings settings) {
         super(settings);
     }
@@ -37,41 +35,28 @@ public class OddAutoMiner extends BlockWithEntity {
         return BlockRenderType.MODEL;
     }
 
-    @Override
-    @Nullable
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return OddAutoMiner.checkType(world, type, OddBlocksMod.AUTO_MINER_BLOCK_ENTITY);
-    }
+    // @Override
+    // @Nullable
+    // public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
+    //     return OddAutoMiner.checkType(world, type, OddBlocksMod.AUTO_MINER_BLOCK_ENTITY);
+    // }
 
-    @Nullable
-    protected static <T extends BlockEntity> BlockEntityTicker<T> checkType(World world, BlockEntityType<T> givenType, BlockEntityType<? extends OddAutoMinerBlockEntity> expectedType) {
-        return world.isClient ? null : checkType(givenType, expectedType, OddAutoMinerBlockEntity::tick);
-    }
+    // @Nullable
+    // protected static <T extends BlockEntity> BlockEntityTicker<T> checkType(World world, BlockEntityType<T> givenType, BlockEntityType<? extends OddAutoMinerBlockEntity> expectedType) {
+    //     return world.isClient ? null : checkType(givenType, expectedType, OddAutoMinerBlockEntity::tick);
+    // }
 
     @Override
     public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
         world.createAndScheduleBlockTick(pos, this, 40);
     }
 
-    
-
     @Override
     public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         Block placedBlock = world.getBlockState(pos.add(0, -1, 0)).getBlock();
         BlockState placedBlockState = world.getBlockState(pos.add(0, -1, 0));
-
-        OddBlocksMod.LOGGER.info("scheduledTick");
-
-        if(placedBlock == OddBlocksMod.ODD_DIRT){
-            //world.createAndScheduleBlockTick(pos, block, delay);
-            //This works
-            //TODO: Add a delay here so it's not shitting blocks out constantly
-            OddBlocksMod.LOGGER.info("AUTO MINER IS ON DIRT!");
-            world.breakBlock(pos.add(0, -1, 0), true);
-            placedBlock.onBroken(world, pos.add(0, -1, 0), placedBlockState);
-        }
-
-        world.createAndScheduleBlockTick(pos, this, 40);
+       
+        doMine(world, placedBlock, placedBlockState, pos.add(0, -1, 0));
     }
 
     @Override
@@ -79,28 +64,9 @@ public class OddAutoMiner extends BlockWithEntity {
         return VoxelShapes.cuboid(0f, 0f, 0f, 0.9f, 1f, 0.9f);
     }
 
-    // @Override
-    // public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
-    //     OddBlocksMod.LOGGER.info("ON STATE REPLACED");
-    //     if (state.isOf(newState.getBlock())) {
-    //         return;
-    //     }
-    //     if (!world.isClient && world.getBlockTickScheduler().isQueued(pos, this)) {
-    //         world.createAndScheduleBlockTick(pos, this, 40);
-    //     }
-    // }
+    public abstract void doMine(ServerWorld world, Block targetBlock, BlockState targetBlockState, BlockPos pos);
 
-    // @Nullable
-    // protected static <E extends BlockEntity, A extends BlockEntity> BlockEntityTicker<A> checkType(BlockEntityType<A> givenType, BlockEntityType<E> expectedType, BlockEntityTicker<? super E> ticker) {
-    //     return expectedType == givenType ? ticker : null;
-    // }
-
-    // @Override
-    // protected void openScreen(World world, BlockPos pos, PlayerEntity player) {
-    //     BlockEntity blockEntity = world.getBlockEntity(pos);
-    //     if (blockEntity instanceof OddAutoMinerBlockEntity) {
-    //         player.openHandledScreen((NamedScreenHandlerFactory)((Object)blockEntity));
-    //         player.incrementStat(Stats.INTERACT_WITH_FURNACE);
-    //     }
-    // }
+    public void scheduleNextMine(ServerWorld world, BlockPos pos, int ticks){
+        world.createAndScheduleBlockTick(pos.add(0, 1, 0), this, ticks);
+    }
 }

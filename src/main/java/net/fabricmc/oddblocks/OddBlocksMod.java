@@ -6,6 +6,9 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.oddblocks.block_entity.OddAutoMinerBlockEntity;
 import net.fabricmc.oddblocks.blocks.OddAutoMiner;
+import net.fabricmc.oddblocks.blocks.OddBlocksMinerMK1;
+import net.fabricmc.oddblocks.blocks.OddBlocksMinerMK2;
+import net.fabricmc.oddblocks.blocks.OddBlocksMinerMK3;
 import net.fabricmc.oddblocks.blocks.OddBlocksTier1;
 import net.fabricmc.oddblocks.blocks.OddBlocksTier2;
 import net.fabricmc.oddblocks.blocks.OddBlocksTier3;
@@ -31,6 +34,8 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
+
+import com.ibm.icu.impl.UResource.Array;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -85,8 +90,10 @@ public class OddBlocksMod implements ModInitializer {
 	public static final OddBlocksTier9 ODD_RARE = new OddBlocksTier9(FabricBlockSettings.of(Material.DECORATION).strength(3.0f, 20.0f).requiresTool());
 	public static final OddBlocksTier9 ODD_TOOL = new OddBlocksTier9(FabricBlockSettings.of(Material.DECORATION).strength(2.0f, 20.0f));
 
-	public static final OddAutoMiner ODD_AUTO_MINER = new OddAutoMiner(FabricBlockSettings.of(Material.METAL).strength(2.0f, 20.0f));
-
+	public static final OddAutoMiner ODD_AUTO_MINER_MK1 = new OddBlocksMinerMK1(FabricBlockSettings.of(Material.METAL).strength(2.0f, 20.0f));
+	public static final OddAutoMiner ODD_AUTO_MINER_MK2 = new OddBlocksMinerMK2(FabricBlockSettings.of(Material.METAL).strength(2.0f, 20.0f));
+	public static final OddAutoMiner ODD_AUTO_MINER_MK3 = new OddBlocksMinerMK3(FabricBlockSettings.of(Material.METAL).strength(2.0f, 20.0f));
+	
 	public static final OddBlocksSandyKey ODD_SANDY_KEY = new OddBlocksSandyKey(new FabricItemSettings().group(ItemGroup.MISC));
 	public static final OddBlocksHotKey ODD_HOT_KEY = new OddBlocksHotKey(new FabricItemSettings().group(ItemGroup.MISC));
 
@@ -130,7 +137,9 @@ public class OddBlocksMod implements ModInitializer {
 		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_coal_ore_block"), ODD_COAL_ORE);
 		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_redstone_ore_block"), ODD_REDSTONE_ORE);
 
-		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_auto_miner_block"), ODD_AUTO_MINER);	
+		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_auto_miner_mk1_block"), ODD_AUTO_MINER_MK1);	
+		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_auto_miner_mk2_block"), ODD_AUTO_MINER_MK2);	
+		Registry.register(Registry.BLOCK, new Identifier("oddblocks", "odd_auto_miner_mk3_block"), ODD_AUTO_MINER_MK3);	
 		
 		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_dirt_block"), new BlockItem(ODD_DIRT, new FabricItemSettings().group(ItemGroup.MISC)));
 		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_meat_block"), new BlockItem(ODD_MEAT, new FabricItemSettings().group(ItemGroup.MISC)));
@@ -159,11 +168,16 @@ public class OddBlocksMod implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_amethyst_ore_block"), new BlockItem(ODD_AMETHYST_ORE, new FabricItemSettings().group(ItemGroup.MISC)));
 		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_coal_ore_block"), new BlockItem(ODD_COAL_ORE, new FabricItemSettings().group(ItemGroup.MISC)));
 		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_redstone_ore_block"), new BlockItem(ODD_REDSTONE_ORE, new FabricItemSettings().group(ItemGroup.MISC)));
-		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_auto_miner_block"), new BlockItem(ODD_AUTO_MINER, new FabricItemSettings().group(ItemGroup.MISC)));
+
+		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_auto_miner_mk1_block"), new BlockItem(ODD_AUTO_MINER_MK1, new FabricItemSettings().group(ItemGroup.MISC)));
+		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_auto_miner_mk2_block"), new BlockItem(ODD_AUTO_MINER_MK2, new FabricItemSettings().group(ItemGroup.MISC)));
+		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_auto_miner_mk3_block"), new BlockItem(ODD_AUTO_MINER_MK3, new FabricItemSettings().group(ItemGroup.MISC)));
+
 		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_sandy_key"), ODD_SANDY_KEY);
 		Registry.register(Registry.ITEM, new Identifier("oddblocks", "odd_hot_key"), ODD_HOT_KEY);
 	
-		AUTO_MINER_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "oddblocks:odd_auto_miner_block_entity", FabricBlockEntityTypeBuilder.create(OddAutoMinerBlockEntity::new, ODD_AUTO_MINER).build(null));
+		
+		AUTO_MINER_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "oddblocks:odd_auto_miner_block_entity", FabricBlockEntityTypeBuilder.create(OddAutoMinerBlockEntity::new, new Block[] {ODD_AUTO_MINER_MK1, ODD_AUTO_MINER_MK2, ODD_AUTO_MINER_MK3}).build(null));
 
 		//Features add the OddBlocks to the world in various ways
 		OddSpawnFeature.registerFeature();

@@ -20,6 +20,11 @@
           "weight": 50
         },
         {
+          "type": "minecraft:item",
+          "name": "minecraft:clay_ball",
+          "weight": 10
+        },
+        {
           "type":"minecraft:item",
           "name": "oddblocks:odd_sandy_key",
           "weight": 1
