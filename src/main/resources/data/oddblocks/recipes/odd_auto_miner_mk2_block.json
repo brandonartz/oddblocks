@@ -10,17 +10,17 @@
         "item": "minecraft:redstone"
       },
       "B": {
-        "item": "minecraft:iron_block"
+        "item": "minecraft:diamond_block"
       },
       "C": {
-        "item": "minecraft:furnace"
+        "item": "oddblocks:odd_auto_miner_mk1_block"
       },
       "D": {
-        "item": "minecraft:iron_ingot"
+        "item": "minecraft:diamond"
       }
     },
     "result": {
-      "item": "oddblocks:odd_auto_miner_block",
+      "item": "oddblocks:odd_auto_miner_mk2_block",
       "count": 1
     }
   }

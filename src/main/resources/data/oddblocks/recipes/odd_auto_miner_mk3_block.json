@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ABA",
+    "DCD",
+    " D "
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:redstone"
+    },
+    "B": {
+      "item": "minecraft:netherite_block"
+    },
+    "C": {
+      "item": "oddblocks:odd_auto_miner_mk2_block"
+    },
+    "D": {
+      "item": "minecraft:netherite_ingot"
+    }
+  },
+  "result": {
+    "item": "oddblocks:odd_auto_miner_mk3_block",
+    "count": 1
+  }
+}
