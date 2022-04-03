@@ -1,8 +1,8 @@
 {
     "ambientocclusion": true,
     "textures": {
-        "up": "oddblocks:block/odd_auto_miner_mk1_block_top",
-        "top_side": "oddblocks:block/odd_auto_miner_mk1_block_top_side",
+        "up": "oddblocks:block/odd_auto_miner_mk2_block_top",
+        "top_side": "oddblocks:block/odd_auto_miner_mk2_block_top_side",
         "drill": "oddblocks:block/odd_auto_miner_block_drill"
     },
     "elements": [
