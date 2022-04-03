@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+      "ABA",
+      "DCD",
+      " D "
+    ],
+    "key": {
+      "A": {
+        "item": "minecraft:redstone"
+      },
+      "B": {
+        "item": "minecraft:iron_block"
+      },
+      "C": {
+        "item": "minecraft:furnace"
+      },
+      "D": {
+        "item": "minecraft:iron_ingot"
+      }
+    },
+    "result": {
+      "item": "oddblocks:odd_auto_miner_block",
+      "count": 1
+    }
+  }
