@@ -13,13 +13,15 @@ public final class OddBlocksMinerMK1 extends OddAutoMiner {
     }
 
     @Override
-    public void doMine(ServerWorld world, Block targetBlock, BlockState targetBlockState, BlockPos targetPos) {
+    public int doMine(ServerWorld world, Block targetBlock, BlockState targetBlockState, BlockPos targetPos) {
         if(targetBlockState.isIn(OddBlocksMod.ODDBLOCKS_TIER1)){
             OddBlocksMod.LOGGER.info("AUTO MINER IS ON T1 Block!");
             world.breakBlock(targetPos, true);
-            targetBlock.onBroken(world, targetPos, targetBlockState);
+            targetBlock.onBroken(world, targetPos, targetBlockState);   
 
-            scheduleNextMine(world, targetPos, 40);    
+            return 30;
         }
+
+        return 0;
     }
 }

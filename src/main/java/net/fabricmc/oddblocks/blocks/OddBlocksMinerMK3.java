@@ -13,37 +13,38 @@ public final class OddBlocksMinerMK3 extends OddAutoMiner {
     }
 
     @Override
-    public void doMine(ServerWorld world, Block targetBlock, BlockState targetBlockState, BlockPos targetPos) {
+    public int doMine(ServerWorld world, Block targetBlock, BlockState targetBlockState, BlockPos targetPos) {
         if(targetBlockState.isIn(OddBlocksMod.ODDBLOCKS_TIER1)){
             OddBlocksMod.LOGGER.info("AUTO MINER IS ON T1 Block!");
             world.breakBlock(targetPos, true);
             targetBlock.onBroken(world, targetPos, targetBlockState);
 
-            scheduleNextMine(world, targetPos, 20); 
+            return 20;
         }
         else if (targetBlockState.isIn(OddBlocksMod.ODDBLOCKS_TIER2)){
             OddBlocksMod.LOGGER.info("AUTO MINER IS ON T2 Block!");
             world.breakBlock(targetPos, true);
             targetBlock.onBroken(world, targetPos, targetBlockState);
 
-            scheduleNextMine(world, targetPos, 30);   
+            return 30;
         }
         else if (targetBlockState.isIn(OddBlocksMod.ODDBLOCKS_TIER3)){
             OddBlocksMod.LOGGER.info("AUTO MINER IS ON T3 Block!");
             world.breakBlock(targetPos, true);
             targetBlock.onBroken(world, targetPos, targetBlockState);
 
-            scheduleNextMine(world, targetPos, 50); 
+            return 50;
         }
         else if (targetBlockState.isIn(OddBlocksMod.ODDBLOCKS_TIER4)){
             OddBlocksMod.LOGGER.info("AUTO MINER IS ON T4 Block!");
             world.breakBlock(targetPos, true);
             targetBlock.onBroken(world, targetPos, targetBlockState);
 
-            scheduleNextMine(world, targetPos, 70);  
+            return 70; 
         }
         else{
-            OddBlocksMod.LOGGER.info("AUTO MINER IS NOT ON ANY VALID BLOCK!");
+            //Not on valid block
+            return 0;
         }
     }
 }

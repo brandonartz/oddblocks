@@ -86,11 +86,28 @@ public abstract class OddAutoMiner extends BlockWithEntity {
     }
 
     @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
+        return checkType(type, OddBlocksMod.AUTO_MINER_BLOCK_ENTITY, (world1, pos, state1, be) -> OddAutoMinerBlockEntity.tick(world1, pos, state1, be));
+    }
+
+    @Override
     public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         Block placedBlock = world.getBlockState(pos.add(0, -1, 0)).getBlock();
         BlockState placedBlockState = world.getBlockState(pos.add(0, -1, 0));
-       
-        doMine(world, placedBlock, placedBlockState, pos.add(0, -1, 0));
+        int cooldown = 30;
+
+        BlockEntity blockEntity = world.getBlockEntity(pos);
+        if (blockEntity instanceof OddAutoMinerBlockEntity) {
+            if(((OddAutoMinerBlockEntity)blockEntity).isBurning()){
+                cooldown = doMine(world, placedBlock, placedBlockState, pos.add(0, -1, 0));
+            }
+        }
+        else
+        {
+            OddBlocksMod.LOGGER.info("No Fuel!");
+        }
+
+        scheduleNextMine(world, pos, cooldown);
     }
 
     @Override
@@ -98,9 +115,9 @@ public abstract class OddAutoMiner extends BlockWithEntity {
         return VoxelShapes.cuboid(0f, 0f, 0f, 0.9f, 1f, 0.9f);
     }
 
-    public abstract void doMine(ServerWorld world, Block targetBlock, BlockState targetBlockState, BlockPos pos);
+    public abstract int doMine(ServerWorld world, Block targetBlock, BlockState targetBlockState, BlockPos pos);
 
     public void scheduleNextMine(ServerWorld world, BlockPos pos, int ticks){
-        world.createAndScheduleBlockTick(pos.add(0, 1, 0), this, ticks);
+        world.createAndScheduleBlockTick(pos, this, ticks);
     }
 }
