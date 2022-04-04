@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
+import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.fabricmc.oddblocks.block_entity.OddAutoMinerBlockEntity;
 import net.fabricmc.oddblocks.blocks.OddAutoMiner;
 import net.fabricmc.oddblocks.blocks.OddBlocksMinerMK1;
@@ -16,6 +17,7 @@ import net.fabricmc.oddblocks.blocks.OddBlocksTier4;
 import net.fabricmc.oddblocks.blocks.OddBlocksTier9;
 import net.fabricmc.oddblocks.items.OddBlocksHotKey;
 import net.fabricmc.oddblocks.items.OddBlocksSandyKey;
+import net.fabricmc.oddblocks.screen_handlers.OddAutoMinerScreenHandler;
 import net.fabricmc.oddblocks.world.gen.feature.OddBlocksTier1Feature;
 import net.fabricmc.oddblocks.world.gen.feature.OddBlocksTier2Feature;
 import net.fabricmc.oddblocks.world.gen.feature.OddBlocksTier3Feature;
@@ -29,6 +31,7 @@ import net.minecraft.block.Material;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -98,6 +101,12 @@ public class OddBlocksMod implements ModInitializer {
 	public static final OddBlocksHotKey ODD_HOT_KEY = new OddBlocksHotKey(new FabricItemSettings().group(ItemGroup.MISC));
 
 	public static BlockEntityType<OddAutoMinerBlockEntity> AUTO_MINER_BLOCK_ENTITY;
+
+	public static final ScreenHandlerType<OddAutoMinerScreenHandler> ODD_AUTO_MINER_SCREEN_HANDLER;
+	
+	static {
+		ODD_AUTO_MINER_SCREEN_HANDLER = ScreenHandlerRegistry.registerSimple(new Identifier("oddblocks", "odd_auto_miner"), OddAutoMinerScreenHandler::new);
+	}
 
 	@Override
 	public void onInitialize() {
@@ -178,6 +187,7 @@ public class OddBlocksMod implements ModInitializer {
 	
 		
 		AUTO_MINER_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "oddblocks:odd_auto_miner_block_entity", FabricBlockEntityTypeBuilder.create(OddAutoMinerBlockEntity::new, new Block[] {ODD_AUTO_MINER_MK1, ODD_AUTO_MINER_MK2, ODD_AUTO_MINER_MK3}).build(null));
+		
 
 		//Features add the OddBlocks to the world in various ways
 		OddSpawnFeature.registerFeature();
@@ -186,7 +196,7 @@ public class OddBlocksMod implements ModInitializer {
 		OddBlocksTier3Feature.registerFeature();
 		OddBlocksTier4Feature.registerFeature();
 		OddBlocksTier9Feature.registerFeature();
-		
+
 		//Add custom portals
 		CustomPortalBuilder.beginPortal().frameBlock(Blocks.COAL_BLOCK).destDimID(new Identifier("the_nether")).tintColor(131, 66, 184).lightWithItem(ODD_HOT_KEY).registerPortal();
 		CustomPortalBuilder.beginPortal().frameBlock(Blocks.SANDSTONE).destDimID(new Identifier("oddblocks:desert")).tintColor(0, 66, 184).lightWithItem(ODD_SANDY_KEY).registerPortal();
