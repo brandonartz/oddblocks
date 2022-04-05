@@ -20,12 +20,21 @@ public class OddAutoMinerScreen extends HandledScreen<OddAutoMinerScreenHandler>
     
     @Override
     protected void drawBackground(MatrixStack matrices, float delta, int mouseX, int mouseY) {
+        int k;
+        int i = this.x;
+        int j = this.y;
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, TEXTURE);
         int x = (width - backgroundWidth) / 2;
         int y = (height - backgroundHeight) / 2;
+        //Draws the background of the UI
         drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight);
+        if ((this.handler).isBurning()) {
+            k = (this.handler).getFuelProgress();
+            //Draws the fire onto the background
+            this.drawTexture(matrices, i + 81, j + 31 - k, 176, 12 - k, 14, k + 1);
+        }
     }
     
     @Override

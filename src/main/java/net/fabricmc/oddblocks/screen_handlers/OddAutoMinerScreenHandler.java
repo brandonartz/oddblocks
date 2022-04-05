@@ -1,28 +1,39 @@
 package net.fabricmc.oddblocks.screen_handlers;
 
 import net.fabricmc.oddblocks.OddBlocksMod;
+import net.fabricmc.oddblocks.block_entity.OddAutoMinerBlockEntity;
+import net.fabricmc.oddblocks.screens.slot.MinerFuelSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.recipe.RecipeType;
+import net.minecraft.recipe.book.RecipeBookCategory;
+import net.minecraft.screen.AbstractFurnaceScreenHandler;
+import net.minecraft.screen.ArrayPropertyDelegate;
+import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
+import net.minecraft.screen.slot.FurnaceFuelSlot;
 import net.minecraft.screen.slot.Slot;
 
-public class OddAutoMinerScreenHandler extends ScreenHandler {
+public class OddAutoMinerScreenHandler extends ScreenHandler { //extends AbstractFurnaceScreenHandler {
     private final Inventory inventory;
+    private final PropertyDelegate propertyDelegate;
  
     //This constructor gets called on the client when the server wants it to open the screenHandler,
     //The client will call the other constructor with an empty Inventory and the screenHandler will automatically
     //sync this empty inventory with the inventory on the server.
     public OddAutoMinerScreenHandler(int syncId, PlayerInventory playerInventory) {
-        this(syncId, playerInventory, new SimpleInventory(1));
+        this(syncId, playerInventory, new SimpleInventory(1), new ArrayPropertyDelegate(4));
     }
  
     //This constructor gets called from the BlockEntity on the server without calling the other constructor first, the server knows the inventory of the container
     //and can therefore directly provide it as an argument. This inventory will then be synced to the client.
-    public OddAutoMinerScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory) {
+    public OddAutoMinerScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, PropertyDelegate propertyDelegate) {
         super(OddBlocksMod.ODD_AUTO_MINER_SCREEN_HANDLER, syncId);
+        this.propertyDelegate = propertyDelegate;
+                
         checkSize(inventory, 1);
         this.inventory = inventory;
         //some inventories do custom logic when a player opens it.
@@ -34,7 +45,8 @@ public class OddAutoMinerScreenHandler extends ScreenHandler {
         int l;
         //Our inventory
         
-        this.addSlot(new Slot(inventory, 0, 80, 35));
+        //this.addSlot(new Slot(inventory, 0, 80, 35));
+        this.addSlot(new MinerFuelSlot(this, inventory, 0, 80, 35));
         
         //The player inventory
         for (m = 0; m < 3; ++m) {
@@ -46,7 +58,8 @@ public class OddAutoMinerScreenHandler extends ScreenHandler {
         for (m = 0; m < 9; ++m) {
             this.addSlot(new Slot(playerInventory, m, 8 + m * 18, 142));
         }
- 
+
+        this.addProperties(propertyDelegate);
     }
  
     @Override
@@ -78,5 +91,21 @@ public class OddAutoMinerScreenHandler extends ScreenHandler {
         }
  
         return newStack;
+    }
+
+    public int getFuelProgress() {
+        int i = this.propertyDelegate.get(1);
+        if (i == 0) {
+            i = 200;
+        }
+        return this.propertyDelegate.get(0) * 13 / i;
+    }
+
+    public boolean isBurning() {
+        return this.propertyDelegate.get(0) > 0;
+    }
+
+    public boolean isFuel(ItemStack stack) {
+        return OddAutoMinerBlockEntity.canUseAsFuel(stack);
     }
 }

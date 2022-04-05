@@ -23,6 +23,7 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.screen.NamedScreenHandlerFactory;
+import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
@@ -40,6 +41,53 @@ public class OddAutoMinerBlockEntity extends BlockEntity implements NamedScreenH
 	  public boolean lastTickBurning;
     public boolean isOnValidGround;
 	  ItemStack burnItem;
+    protected final PropertyDelegate propertyDelegate = new PropertyDelegate(){
+      @Override
+      public int get(int index) {
+          switch (index) {
+              case 0: {
+                  return OddAutoMinerBlockEntity.this.burnTime;
+              }
+              case 1: {
+                  return OddAutoMinerBlockEntity.this.fuelTime;
+              }
+              case 2: {
+                  return OddAutoMinerBlockEntity.this.cookTime;
+              }
+              case 3: {
+                  return OddAutoMinerBlockEntity.this.cookTimeTotal;
+              }
+          }
+          return 0;
+      }
+
+      @Override
+      public void set(int index, int value) {
+          switch (index) {
+              case 0: {
+                  OddAutoMinerBlockEntity.this.burnTime = value;
+                  break;
+              }
+              case 1: {
+                  OddAutoMinerBlockEntity.this.fuelTime = value;
+                  break;
+              }
+              case 2: {
+                  OddAutoMinerBlockEntity.this.cookTime = value;
+                  break;
+              }
+              case 3: {
+                  OddAutoMinerBlockEntity.this.cookTimeTotal = value;
+                  break;
+              }
+          }
+      }
+
+      @Override
+      public int size() {
+          return 4;
+      }
+  };
 
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(9, ItemStack.EMPTY);
     
@@ -73,7 +121,7 @@ public class OddAutoMinerBlockEntity extends BlockEntity implements NamedScreenH
     public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
         //We provide *this* to the screenHandler as our class Implements Inventory
         //Only the Server has the Inventory at the start, this will be synced to the client in the ScreenHandler
-        return new OddAutoMinerScreenHandler(syncId, playerInventory, this);
+        return new OddAutoMinerScreenHandler(syncId, playerInventory, this, propertyDelegate);
     }
  
     @Override
@@ -146,7 +194,7 @@ public class OddAutoMinerBlockEntity extends BlockEntity implements NamedScreenH
     }
     if (bl != blockEntity.isBurning()) {
         bl2 = true;
-        //state = (BlockState)state.with(AbstractFurnaceBlock.LIT, blockEntity.isBurning());
+        state = (BlockState)state.with(AbstractFurnaceBlock.LIT, blockEntity.isBurning());
         world.setBlockState(pos, state, Block.NOTIFY_ALL);
     }
     if (bl2) {

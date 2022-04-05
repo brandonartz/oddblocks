@@ -16,6 +16,9 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.state.StateManager;
+import net.minecraft.state.property.BooleanProperty;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ItemScatterer;
@@ -27,13 +30,21 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
 public abstract class OddAutoMiner extends BlockWithEntity {
+    public static final BooleanProperty LIT = Properties.LIT;
+
     public OddAutoMiner(Settings settings) {
         super(settings);
+        this.setDefaultState((BlockState)((BlockState)this.stateManager.getDefaultState()).with(LIT, false));
     }
 
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new OddAutoMinerBlockEntity(pos, state);
+    }
+
+    @Override
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        builder.add(LIT);
     }
 
     @Override
